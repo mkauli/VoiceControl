@@ -1,2 +1,2 @@
 # VoiceControl
-Send events (key, mouse) to applications using voice
+Send events (key, mouse) to an application using voice
