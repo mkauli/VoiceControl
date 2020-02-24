@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SendVoiceCommands
 {
@@ -29,6 +30,14 @@ namespace SendVoiceCommands
 
         private NAudio.Wave.WaveInEvent waveIn;
 
+        // NAudio fft wants powers of two!
+        private static int fftLength = 2048; // 8192; 
+
+        // There might be a sample aggregator in NAudio somewhere but I made a variation for my needs
+        private AudioSampleAggregator sampleAggregator = new AudioSampleAggregator(fftLength);
+
+        private AudioSpectrumUtils _spectrumUtils;
+
         public MainForm()
         {
             InitializeComponent();
@@ -37,12 +46,15 @@ namespace SendVoiceCommands
             _closeButton.Text = "Close";
             _refreshButton.Text = "Refresh";
             _testButton.Text = "Test";
+            _spectrumButton.Text = "Spectrum";
 
             refreshProcessList();
 
             waveIn = new NAudio.Wave.WaveInEvent();
             waveIn.DataAvailable += OnDataAvailable;
             waveIn.StartRecording();
+
+            _spectrumUtils = new AudioSpectrumUtils(waveIn, fftLength);
         }
 
         private void closeButton__Click(object sender, EventArgs e)
@@ -96,22 +108,7 @@ namespace SendVoiceCommands
 
         private void OnDataAvailable(object sender, NAudio.Wave.WaveInEventArgs args)
         {
-            float max = 0;
-            // interpret as 16 bit audio
-            for (int index = 0; index < args.BytesRecorded; index += 2)
-            {
-                short sample = (short)((args.Buffer[index + 1] << 8) |
-                                        args.Buffer[index + 0]);
-                // to floating point
-                var sample32 = sample / 32768f;
-                // absolute value 
-                if (sample32 < 0) sample32 = -sample32;
-                // is this the max value?
-                if (sample32 > max) max = sample32;
-            }
-
-            int percentValue = (int)(100 * max);
-            MethodInvoker mi = new MethodInvoker(() => calculateMaximum(percentValue));
+            MethodInvoker mi = new MethodInvoker(() => processAudioData(args));
             if (progressBar1.InvokeRequired)
             {
                 progressBar1.Invoke(mi);
@@ -123,13 +120,39 @@ namespace SendVoiceCommands
 
         }
 
-        private void calculateMaximum(int percentValue)
+        private void processAudioData(NAudio.Wave.WaveInEventArgs args)
         {
+            byte[] buffer = args.Buffer;
+            int bytesRecorded = args.BytesRecorded;
+            int bufferIncrement = waveIn.WaveFormat.BlockAlign;
+
+            float max = 0;
+
+            for (int index = 0; index < bytesRecorded; index += bufferIncrement)
+            {
+                short sample = (short)((args.Buffer[index + 1] << 8) |
+                                        args.Buffer[index + 0]);
+                float sample32 = sample;
+
+                // calculate maximum value
+                max = calculateMaximum(max, sample32);
+                // perform FFT analysis
+                sampleAggregator.Add(sample32);
+            }
+
+            int percentValue = (int)(100 * (max / 32768f));
+            if (percentValue < 0) percentValue = -percentValue; // absolute value 
             progressBar1.Value = percentValue;
             if (percentValue >= trackBar1.Value)
             {
                 trigger();
             }
+        }
+
+        private float calculateMaximum(float currentMax, float currentValue)
+        {
+            if (currentValue > currentMax) currentMax = currentValue;
+            return currentMax;
         }
 
         private void trigger()
@@ -143,6 +166,40 @@ namespace SendVoiceCommands
             SetForegroundWindow(item.process.MainWindowHandle);
             SendKeys.SendWait(" ");
             SendKeys.Flush();
+        }
+
+        public int GetFFTFrequencyIndex(int frequency)
+        {
+            double maxFrequency;
+            if (waveIn != null)
+            {
+                maxFrequency = waveIn.WaveFormat.SampleRate / 2.0d;
+            }
+            else
+            {
+                maxFrequency = 22050; // Assume a default 44.1 kHz sample rate.
+            }
+            return (int)((frequency / maxFrequency) * (fftLength / 2));
+        }
+
+        public int GetFFTIndexFrequency(int index)
+        {
+            double maxFrequency;
+            if (waveIn != null)
+            {
+                maxFrequency = waveIn.WaveFormat.SampleRate / 2.0d;
+            }
+            else
+            {
+                maxFrequency = 22050; // Assume a default 44.1 kHz sample rate.
+            }
+            return (int)((index * maxFrequency) / (fftLength / 2));
+        }
+
+        private void _spectrumButton_Click(object sender, EventArgs e)
+        {
+            AudioSpectrumAnalyser dialog = new AudioSpectrumAnalyser(waveIn, sampleAggregator, _spectrumUtils);
+            dialog.ShowDialog();
         }
     }
 }
