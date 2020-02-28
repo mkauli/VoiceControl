@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this._closeButton = new System.Windows.Forms.Button();
             this._spectrumChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this._detectedFrequencyLabel = new System.Windows.Forms.Label();
@@ -41,6 +41,9 @@
             this._detectLevelBox = new System.Windows.Forms.TextBox();
             this._detectedNoteLabel = new System.Windows.Forms.Label();
             this._detectedNoteBox = new System.Windows.Forms.TextBox();
+            this._differenceSlider = new NAudio.Gui.PanSlider();
+            this._differenceBox = new System.Windows.Forms.TextBox();
+            this._differenceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._detectLevelBar)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +52,7 @@
             // 
             this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._closeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._closeButton.Location = new System.Drawing.Point(870, 495);
+            this._closeButton.Location = new System.Drawing.Point(1011, 622);
             this._closeButton.Name = "_closeButton";
             this._closeButton.Size = new System.Drawing.Size(75, 23);
             this._closeButton.TabIndex = 1;
@@ -61,22 +64,22 @@
             this._spectrumChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this._spectrumChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this._spectrumChart.Legends.Add(legend1);
-            this._spectrumChart.Location = new System.Drawing.Point(12, 130);
+            chartArea2.Name = "ChartArea1";
+            this._spectrumChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this._spectrumChart.Legends.Add(legend2);
+            this._spectrumChart.Location = new System.Drawing.Point(12, 139);
             this._spectrumChart.Name = "_spectrumChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "spectrumSeries";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "detectLevelSeries";
-            this._spectrumChart.Series.Add(series1);
-            this._spectrumChart.Series.Add(series2);
-            this._spectrumChart.Size = new System.Drawing.Size(933, 348);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "spectrumSeries";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "detectLevelSeries";
+            this._spectrumChart.Series.Add(series3);
+            this._spectrumChart.Series.Add(series4);
+            this._spectrumChart.Size = new System.Drawing.Size(1074, 466);
             this._spectrumChart.TabIndex = 7;
             this._spectrumChart.Text = "_spectrumChart";
             // 
@@ -114,14 +117,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._detectLevelBar.Location = new System.Drawing.Point(117, 12);
             this._detectLevelBar.Name = "_detectLevelBar";
-            this._detectLevelBar.Size = new System.Drawing.Size(700, 45);
+            this._detectLevelBar.Size = new System.Drawing.Size(841, 45);
             this._detectLevelBar.TabIndex = 11;
             this._detectLevelBar.ValueChanged += new System.EventHandler(this._detectLevelBar_ValueChanged);
             // 
             // _detectLevelBox
             // 
             this._detectLevelBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._detectLevelBox.Location = new System.Drawing.Point(823, 12);
+            this._detectLevelBox.Location = new System.Drawing.Point(964, 12);
             this._detectLevelBox.Name = "_detectLevelBox";
             this._detectLevelBox.Size = new System.Drawing.Size(122, 20);
             this._detectLevelBox.TabIndex = 12;
@@ -132,7 +135,7 @@
             // _detectedNoteLabel
             // 
             this._detectedNoteLabel.AutoSize = true;
-            this._detectedNoteLabel.Location = new System.Drawing.Point(12, 95);
+            this._detectedNoteLabel.Location = new System.Drawing.Point(12, 98);
             this._detectedNoteLabel.Name = "_detectedNoteLabel";
             this._detectedNoteLabel.Size = new System.Drawing.Size(104, 13);
             this._detectedNoteLabel.TabIndex = 13;
@@ -146,13 +149,40 @@
             this._detectedNoteBox.TabIndex = 14;
             this._detectedNoteBox.Text = "_detectedNoteBox";
             // 
-            // SpectrumAnalyser
+            // _differenceSlider
+            // 
+            this._differenceSlider.Location = new System.Drawing.Point(309, 95);
+            this._differenceSlider.Name = "_differenceSlider";
+            this._differenceSlider.Pan = 0.5F;
+            this._differenceSlider.Size = new System.Drawing.Size(255, 20);
+            this._differenceSlider.TabIndex = 15;
+            // 
+            // _differenceBox
+            // 
+            this._differenceBox.Location = new System.Drawing.Point(570, 95);
+            this._differenceBox.Name = "_differenceBox";
+            this._differenceBox.Size = new System.Drawing.Size(100, 20);
+            this._differenceBox.TabIndex = 16;
+            this._differenceBox.Text = "_differenceBox";
+            // 
+            // _differenceLabel
+            // 
+            this._differenceLabel.AutoSize = true;
+            this._differenceLabel.Location = new System.Drawing.Point(249, 98);
+            this._differenceLabel.Name = "_differenceLabel";
+            this._differenceLabel.Size = new System.Drawing.Size(86, 13);
+            this._differenceLabel.TabIndex = 17;
+            this._differenceLabel.Text = "_differenceLabel";
+            // 
+            // AudioSpectrumAnalyser
             // 
             this.AcceptButton = this._closeButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._closeButton;
-            this.ClientSize = new System.Drawing.Size(957, 530);
+            this.ClientSize = new System.Drawing.Size(1098, 657);
+            this.Controls.Add(this._differenceBox);
+            this.Controls.Add(this._differenceSlider);
             this.Controls.Add(this._detectedNoteBox);
             this.Controls.Add(this._detectedNoteLabel);
             this.Controls.Add(this._detectLevelBox);
@@ -162,7 +192,8 @@
             this.Controls.Add(this._detectedFrequencyLabel);
             this.Controls.Add(this._spectrumChart);
             this.Controls.Add(this._closeButton);
-            this.Name = "SpectrumAnalyser";
+            this.Controls.Add(this._differenceLabel);
+            this.Name = "AudioSpectrumAnalyser";
             this.Text = "SpectrumAnalyser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpectrumAnalyser_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).EndInit();
@@ -183,5 +214,8 @@
         private System.Windows.Forms.TextBox _detectLevelBox;
         private System.Windows.Forms.Label _detectedNoteLabel;
         private System.Windows.Forms.TextBox _detectedNoteBox;
+        private NAudio.Gui.PanSlider _differenceSlider;
+        private System.Windows.Forms.TextBox _differenceBox;
+        private System.Windows.Forms.Label _differenceLabel;
     }
 }

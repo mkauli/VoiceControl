@@ -135,5 +135,18 @@ namespace SendVoiceCommands
             // calculate piano keyboard tone number
             return (int)(Math.Log(frequency / 440, 2) * 12) + 49;
         }
+
+        /// <summary>
+        /// Converts the given piano key to the corresponding frequency
+        /// </summary>
+        /// <param name="musicNote">This music-note will be used.</param>
+        /// <returns></returns>
+        public float ConvertPianoKeyNumberToFrequency(int musicNote)
+        {
+            // calculate piano keyboard tone number
+            //Math.Log(440, 2) + ((x - 49) / 12) = Math.Log(frequency, 2);
+            double frequency = 55d * (Math.Pow(2, ((double)musicNote - 13d) / 12d));
+            return (float)frequency;
+        }
     }
 }

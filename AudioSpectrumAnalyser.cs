@@ -63,6 +63,8 @@ namespace SendVoiceCommands
             _detectLevelBox.Text = "0";
             _detectedNoteLabel.Text = "detected Note:";
             _detectedNoteBox.Text = "-";
+            _differenceBox.Text = "";
+            _differenceLabel.Text = "Deviation:";
 
             _detectLevelBar.Minimum = 0;
             _detectLevelBar.Maximum = 15000;
@@ -166,8 +168,27 @@ namespace SendVoiceCommands
 
         private void ProcessDetectedFrequency(float frequency)
         {
+            int pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
             _detectedFrequencyBox.Text = frequency.ToString() + " Hz";
-            _detectedNoteBox.Text = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency).ToString();
+            _detectedNoteBox.Text = pianoKey.ToString();
+            // calculate difference to music note frequency
+            float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey);
+            float difference = musicNoteFrequency - frequency;
+            _differenceBox.Text = difference.ToString() + " Hz";
+            if(difference < 0f)
+            {
+                // calculate % distance to next lower note
+                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey-1);
+                float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
+                _differenceSlider.Pan = distance;
+            }
+            else
+            {
+                // calculate % distance to next upper note
+                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey + 1);
+                float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
+                _differenceSlider.Pan = distance;
+            }
         }
     }
 }
