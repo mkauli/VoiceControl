@@ -60,6 +60,7 @@ namespace SendVoiceCommands
             _refreshButton.Text = "Refresh";
             _testButton.Text = "Test";
             _spectrumButton.Text = "Spectrum";
+            _levelLabel.Text = "Sound Level:";
 
             refreshProcessList();
 
@@ -99,7 +100,6 @@ namespace SendVoiceCommands
 
         private void _testButton_Click(object sender, EventArgs e)
         {
-            trigger();
         }
 
         private void _processesBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,10 +156,6 @@ namespace SendVoiceCommands
             int percentValue = (int)(100 * (max / 32768f));
             if (percentValue < 0) percentValue = -percentValue; // absolute value 
             progressBar1.Value = percentValue;
-            if (percentValue >= trackBar1.Value)
-            {
-                trigger();
-            }
         }
 
         private float calculateMaximum(float currentMax, float currentValue)
@@ -170,15 +166,15 @@ namespace SendVoiceCommands
 
         private void trigger()
         {
-            ProcessItem item = _processesBox.SelectedItem as ProcessItem;
-            if (item == null)
-            {
-                return;
-            }
+            //ProcessItem item = _processesBox.SelectedItem as ProcessItem;
+            //if (item == null)
+            //{
+            //    return;
+            //}
 
-            SetForegroundWindow(item.process.MainWindowHandle);
-            SendKeys.SendWait(" ");
-            SendKeys.Flush();
+            //SetForegroundWindow(item.process.MainWindowHandle);
+            //SendKeys.SendWait(" ");
+            //SendKeys.Flush();
         }
 
         public int GetFFTFrequencyIndex(int frequency)
