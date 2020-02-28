@@ -170,7 +170,7 @@ namespace SendVoiceCommands
         {
             int pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
             _detectedFrequencyBox.Text = frequency.ToString() + " Hz";
-            _detectedNoteBox.Text = pianoKey.ToString();
+            _detectedNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(pianoKey);
             // calculate difference to music note frequency
             float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey);
             float difference = musicNoteFrequency - frequency;
