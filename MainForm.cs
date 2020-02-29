@@ -60,6 +60,7 @@ namespace SendVoiceCommands
             _refreshButton.Text = "Refresh";
             _spectrumButton.Text = "Spectrum";
             _levelLabel.Text = "Sound Level:";
+            _processLabel.Text = "Select Windows Application:";
 
             refreshProcessList();
 

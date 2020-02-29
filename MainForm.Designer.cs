@@ -34,6 +34,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this._spectrumButton = new System.Windows.Forms.Button();
             this._levelLabel = new System.Windows.Forms.Label();
+            this._processLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _closeButton
@@ -53,7 +54,7 @@
             this._processesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._processesBox.FormattingEnabled = true;
-            this._processesBox.Location = new System.Drawing.Point(12, 12);
+            this._processesBox.Location = new System.Drawing.Point(12, 25);
             this._processesBox.Name = "_processesBox";
             this._processesBox.Size = new System.Drawing.Size(870, 21);
             this._processesBox.TabIndex = 1;
@@ -62,7 +63,7 @@
             // _refreshButton
             // 
             this._refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._refreshButton.Location = new System.Drawing.Point(888, 12);
+            this._refreshButton.Location = new System.Drawing.Point(888, 23);
             this._refreshButton.Name = "_refreshButton";
             this._refreshButton.Size = new System.Drawing.Size(75, 23);
             this._refreshButton.TabIndex = 2;
@@ -99,12 +100,22 @@
             this._levelLabel.TabIndex = 8;
             this._levelLabel.Text = "_levelLabel";
             // 
+            // _processLabel
+            // 
+            this._processLabel.AutoSize = true;
+            this._processLabel.Location = new System.Drawing.Point(12, 9);
+            this._processLabel.Name = "_processLabel";
+            this._processLabel.Size = new System.Drawing.Size(76, 13);
+            this._processLabel.TabIndex = 9;
+            this._processLabel.Text = "_processLabel";
+            // 
             // MainForm
             // 
             this.AcceptButton = this._closeButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 560);
+            this.Controls.Add(this._processLabel);
             this.Controls.Add(this._levelLabel);
             this.Controls.Add(this._spectrumButton);
             this.Controls.Add(this.progressBar1);
@@ -126,6 +137,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button _spectrumButton;
         private System.Windows.Forms.Label _levelLabel;
+        private System.Windows.Forms.Label _processLabel;
     }
 }
 
