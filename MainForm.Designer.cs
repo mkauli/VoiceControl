@@ -31,7 +31,6 @@
             this._closeButton = new System.Windows.Forms.Button();
             this._processesBox = new System.Windows.Forms.ComboBox();
             this._refreshButton = new System.Windows.Forms.Button();
-            this._testButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this._spectrumButton = new System.Windows.Forms.Button();
             this._levelLabel = new System.Windows.Forms.Label();
@@ -71,17 +70,6 @@
             this._refreshButton.UseVisualStyleBackColor = true;
             this._refreshButton.Click += new System.EventHandler(this._refreshButton_Click);
             // 
-            // _testButton
-            // 
-            this._testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._testButton.Location = new System.Drawing.Point(807, 525);
-            this._testButton.Name = "_testButton";
-            this._testButton.Size = new System.Drawing.Size(75, 23);
-            this._testButton.TabIndex = 3;
-            this._testButton.Text = "_testButton";
-            this._testButton.UseVisualStyleBackColor = true;
-            this._testButton.Click += new System.EventHandler(this._testButton_Click);
-            // 
             // progressBar1
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -94,7 +82,7 @@
             // _spectrumButton
             // 
             this._spectrumButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._spectrumButton.Location = new System.Drawing.Point(726, 525);
+            this._spectrumButton.Location = new System.Drawing.Point(807, 525);
             this._spectrumButton.Name = "_spectrumButton";
             this._spectrumButton.Size = new System.Drawing.Size(75, 23);
             this._spectrumButton.TabIndex = 7;
@@ -120,7 +108,6 @@
             this.Controls.Add(this._levelLabel);
             this.Controls.Add(this._spectrumButton);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this._testButton);
             this.Controls.Add(this._refreshButton);
             this.Controls.Add(this._processesBox);
             this.Controls.Add(this._closeButton);
@@ -136,7 +123,6 @@
         private System.Windows.Forms.Button _closeButton;
         private System.Windows.Forms.ComboBox _processesBox;
         private System.Windows.Forms.Button _refreshButton;
-        private System.Windows.Forms.Button _testButton;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button _spectrumButton;
         private System.Windows.Forms.Label _levelLabel;

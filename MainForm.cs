@@ -58,7 +58,6 @@ namespace SendVoiceCommands
             Text = "Send Voice Command";
             _closeButton.Text = "Close";
             _refreshButton.Text = "Refresh";
-            _testButton.Text = "Test";
             _spectrumButton.Text = "Spectrum";
             _levelLabel.Text = "Sound Level:";
 
@@ -79,7 +78,7 @@ namespace SendVoiceCommands
         private void refreshProcessList()
         {
             _processesBox.Items.Clear();
-            _testButton.Enabled = false;
+            EnableGame( false );
             _processesBox.Text = "";
 
             System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
@@ -98,19 +97,15 @@ namespace SendVoiceCommands
             }
         }
 
-        private void _testButton_Click(object sender, EventArgs e)
-        {
-        }
-
         private void _processesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_processesBox.SelectedItem != null)
             {
-                _testButton.Enabled = true;
+                EnableGame( true );
             }
             else
             {
-                _testButton.Enabled = false;
+                EnableGame( false );
             }
         }
 
@@ -164,19 +159,6 @@ namespace SendVoiceCommands
             return currentMax;
         }
 
-        private void trigger()
-        {
-            //ProcessItem item = _processesBox.SelectedItem as ProcessItem;
-            //if (item == null)
-            //{
-            //    return;
-            //}
-
-            //SetForegroundWindow(item.process.MainWindowHandle);
-            //SendKeys.SendWait(" ");
-            //SendKeys.Flush();
-        }
-
         public int GetFFTFrequencyIndex(int frequency)
         {
             double maxFrequency;
@@ -209,6 +191,23 @@ namespace SendVoiceCommands
         {
             AudioSpectrumAnalyser dialog = new AudioSpectrumAnalyser(waveIn, sampleAggregator, _spectrumUtils);
             dialog.ShowDialog();
+        }
+
+        private void EnableGame(bool enable)
+        {
+        }
+
+        private void SendEventToApplication()
+        {
+            //ProcessItem item = _processesBox.SelectedItem as ProcessItem;
+            //if (item == null)
+            //{
+            //    return;
+            //}
+
+            //SetForegroundWindow(item.process.MainWindowHandle);
+            //SendKeys.SendWait(" ");
+            //SendKeys.Flush();
         }
     }
 }
