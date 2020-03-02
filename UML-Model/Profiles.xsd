@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.exampleURI.com/Schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.exampleURI.com/Schema1">
+	<xs:element name="ApplicationProperties" type="s1:ApplicationProperties"/>
+	<xs:complexType name="ApplicationProperties">
+		<xs:annotation>
+			<xs:documentation>Properties of the VoiceControl application.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Settings" type="s1:CommonSettings" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="EventList" type="s1:MusicNoteEventList" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CommonSettings" type="s1:CommonSettings"/>
+	<xs:complexType name="CommonSettings">
+		<xs:annotation>
+			<xs:documentation>Common-Settings of the Voice-Control application.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="ApplicationName" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Name of the application that will be triggered with the specified windows events.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="FrequenceDetectLevel" use="optional" type="xs:short">
+			<xs:annotation>
+				<xs:documentation>When scanning the frequency with the maximum level, then consider only frequencies with a level greater than this attribute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="MusicNoteEvent" type="s1:MusicNoteEvent"/>
+	<xs:complexType name="MusicNoteEvent">
+		<xs:annotation>
+			<xs:documentation>Defines one stored event that will be sent to the application when the corresponding music-note (represented via piano-key-number) is sampled.</xs:documentation>
+		</xs:annotation>
+		<xs:all/>
+		<xs:attribute name="Name" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Name of the event - specified by user.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="PianoKey" use="optional" type="xs:short">
+			<xs:annotation>
+				<xs:documentation>Which music-note (represented by the Piano-Key number) will trigger the Event</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="MusicNoteEventList" type="s1:MusicNoteEventList"/>
+	<xs:complexType name="MusicNoteEventList">
+		<xs:annotation>
+			<xs:documentation>Container for events.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Events" type="s1:MusicNoteEvent" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of events specified by user.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

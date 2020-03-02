@@ -15,6 +15,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="MusicNote" type="s1:MusicNote" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

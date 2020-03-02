@@ -31,6 +31,7 @@ namespace SendVoiceCommands
         {
             public string title;
             public System.Diagnostics.Process process;
+            public string applicationName;
 
             override public string ToString()
             {
@@ -51,6 +52,11 @@ namespace SendVoiceCommands
 
         private AudioSpectrumUtils _spectrumUtils;
 
+        /// <summary>
+        /// Stores the application properties in a XML file.
+        /// </summary>
+        private ApplicationProperties _applicationProperties;
+
         public MainForm()
         {
             InitializeComponent();
@@ -69,6 +75,9 @@ namespace SendVoiceCommands
             waveIn.StartRecording();
 
             _spectrumUtils = new AudioSpectrumUtils(waveIn, fftLength);
+            _applicationProperties = new ApplicationProperties();
+            _applicationProperties.EventList = new MusicNoteEvent[1];
+            _applicationProperties.Settings = new CommonSettings();
         }
 
         private void closeButton__Click(object sender, EventArgs e)
@@ -93,6 +102,7 @@ namespace SendVoiceCommands
                 ProcessItem item = new ProcessItem();
                 item.process = process;
                 item.title = process.ProcessName + " [" + process.Id + "]";
+                item.applicationName = process.ProcessName;
 
                 _processesBox.Items.Add(item);
             }
@@ -196,6 +206,12 @@ namespace SendVoiceCommands
 
         private void EnableGame(bool enable)
         {
+            ProcessItem item = _processesBox.SelectedItem as ProcessItem;
+            if (item != null)
+            {
+                _applicationProperties.Settings.ApplicationName = item.applicationName;
+                StoreApplicationSettings();
+            }
         }
 
         private void SendEventToApplication()
@@ -209,6 +225,15 @@ namespace SendVoiceCommands
             //SetForegroundWindow(item.process.MainWindowHandle);
             //SendKeys.SendWait(" ");
             //SendKeys.Flush();
+        }
+
+        private void StoreApplicationSettings()
+        {
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(ApplicationProperties));
+            System.IO.TextWriter writer = new System.IO.StreamWriter("settings.xml");
+            serializer.Serialize(writer, _applicationProperties);
+            writer.Close();
+
         }
     }
 }
