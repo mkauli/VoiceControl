@@ -26,52 +26,36 @@ namespace SendVoiceCommands
     /// </summary>
     public class MusicNoteUtils
     {
-        /// <summary>
-        /// Represents the mapping information of one music note
-        /// </summary>
-        class MusicNote
-        {
-            public int pianoKey;
-            public string musicNoteName;
-        }
-
-        private SortedDictionary<int, MusicNote> _musicNotes;
+        private SortedDictionary<int, SendVoiceCommands.MusicalNote> _musicalNotes;
+        private MusicalNoteList _xmlMusicalNotes;
 
         /// <summary>
         /// Initializes a instance of class MusicNoteUtils.
         /// </summary>
         public MusicNoteUtils()
         {
-            using (System.IO.Stream stream = typeof(MusicNoteUtils).Assembly.GetManifestResourceStream("SendVoiceCommands.PianoKeyToFrequency.xml"))
+            using (System.IO.Stream stream = typeof(MusicNoteUtils).Assembly.GetManifestResourceStream("SendVoiceCommands.UML_Model.PianoKeyToFrequency.xml"))
             {
-                _musicNotes = new SortedDictionary<int,MusicNote>();
+                // read xml data from embedded string an deserializes it into the corresponding XML-Serializer class.
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MusicalNoteList));
+                _xmlMusicalNotes = serializer.Deserialize(stream) as MusicalNoteList;
 
-                // read piano-key to frequency mapping file
-                System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
-                doc.Load(stream);
-
-                System.Xml.XmlNamespaceManager manager = new System.Xml.XmlNamespaceManager(doc.NameTable);
-                manager.AddNamespace("ns1", "http://www.exampleURI.com/Schema1");
-
-                System.Xml.XmlNode rootNode = doc.DocumentElement.SelectSingleNode("/ns1:MusicNoteList", manager);
-                foreach(System.Xml.XmlNode node in rootNode)
+                // Fill container with the read musical-note definitions.
+                _musicalNotes = new SortedDictionary<int, MusicalNote>();
+                foreach(SendVoiceCommands.MusicalNote xmlMusicalNote in _xmlMusicalNotes.MusicalNote)
                 {
-                    MusicNote musicNote = new MusicNote();
-
-                    musicNote.pianoKey = Int32.Parse(node.SelectSingleNode("PianoKey")?.InnerText);
-                    musicNote.musicNoteName = node.SelectSingleNode("NotationGerSimple")?.InnerText;
-                    _musicNotes[musicNote.pianoKey] = musicNote;
+                    _musicalNotes[xmlMusicalNote.PianoKey] = xmlMusicalNote;
                 }
             }
         }
 
         public string GetMusicNoteFromPianoKey(int pianoKey)
         {
-            if(!_musicNotes.ContainsKey(pianoKey))
+            if(!_musicalNotes.ContainsKey(pianoKey))
             {
                 return "-";
             }
-            return _musicNotes[pianoKey].musicNoteName;
+            return _musicalNotes[pianoKey].NotationGerSimple;
         }
     }
 }

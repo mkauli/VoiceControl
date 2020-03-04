@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.exampleURI.com/Schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="PianoKeyToFrequency" xmlns:s1="http://www.exampleURI.com/Schema1">
+	<xs:element name="MusicalNote" type="s1:MusicalNote"/>
+	<xs:complexType name="MusicalNote">
+		<xs:annotation>
+			<xs:documentation>Defines one musical-note represented by frequency, names and piano-key number.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Frequency" type="xs:float" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="NotationEng" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="NotationGer" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="NotationGerSimple" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PianoKey" type="xs:short" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MusicalNoteList" type="s1:MusicalNoteList"/>
+	<xs:complexType name="MusicalNoteList">
+		<xs:annotation>
+			<xs:documentation>Container musical-note definitions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MusicalNote" type="s1:MusicalNote" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
