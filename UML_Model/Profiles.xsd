@@ -33,6 +33,10 @@
 			<xs:documentation>Defines one stored event that will be sent to the application when the corresponding musical-note (represented via piano-key-number) is sampled.</xs:documentation>
 		</xs:annotation>
 		<xs:all/>
+		<xs:attribute name="KeyAlt" use="required" type="xs:boolean"/>
+		<xs:attribute name="KeyControl" use="required" type="xs:boolean"/>
+		<xs:attribute name="KeyShift" use="required" type="xs:boolean"/>
+		<xs:attribute name="KeyValue" use="required" type="xs:int"/>
 		<xs:attribute name="Name" use="required" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>Name of the event - specified by user.</xs:documentation>

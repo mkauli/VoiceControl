@@ -91,7 +91,7 @@ namespace SendVoiceCommands
         private bool _changeLevelBox = false;
         private EventKey _eventKey;
 
-        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel)
+        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent)
         {
             InitializeComponent();
 
@@ -139,6 +139,16 @@ namespace SendVoiceCommands
             _musicNoteUtils = new MusicNoteUtils();
 
             _eventKey = new EventKey();
+
+            if(musicalNoteEvent != null)
+            {
+                _nameBox.Text = musicalNoteEvent.Name;
+                _eventKey.Alt = musicalNoteEvent.KeyAlt;
+                _eventKey.Control = musicalNoteEvent.KeyControl;
+                _eventKey.Shift = musicalNoteEvent.KeyShift;
+                _eventKey.Value = musicalNoteEvent.KeyValue;
+                _eventBox.Text = _eventKey.ToString();
+            }
         }
 
         public short GetDetectLevel()

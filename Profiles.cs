@@ -97,9 +97,61 @@ namespace SendVoiceCommands {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.exampleURI.com/Schema1", IsNullable=false)]
     public partial class MusicalNoteEvent {
         
+        private bool keyAltField;
+        
+        private bool keyControlField;
+        
+        private bool keyShiftField;
+        
+        private int keyValueField;
+        
         private string nameField;
         
         private short pianoKeyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool KeyAlt {
+            get {
+                return this.keyAltField;
+            }
+            set {
+                this.keyAltField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool KeyControl {
+            get {
+                return this.keyControlField;
+            }
+            set {
+                this.keyControlField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool KeyShift {
+            get {
+                return this.keyShiftField;
+            }
+            set {
+                this.keyShiftField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int KeyValue {
+            get {
+                return this.keyValueField;
+            }
+            set {
+                this.keyValueField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -122,12 +174,14 @@ namespace SendVoiceCommands {
                 this.pianoKeyField = value;
             }
         }
+
+        //??PATCHED martin@familie-kaul.de 
         override public string ToString()
         {
             return Name;
         }
     }
-
+    
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
     [System.SerializableAttribute()]

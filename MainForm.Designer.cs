@@ -224,6 +224,7 @@
             this._eventsEditButton.TabIndex = 18;
             this._eventsEditButton.Text = "_eventsEditButton";
             this._eventsEditButton.UseVisualStyleBackColor = true;
+            this._eventsEditButton.Click += new System.EventHandler(this._eventsEditButton_Click);
             // 
             // MainForm
             // 
