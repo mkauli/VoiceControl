@@ -32,7 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this._closeButton = new System.Windows.Forms.Button();
+            this._okButton = new System.Windows.Forms.Button();
             this._spectrumChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this._detectedFrequencyLabel = new System.Windows.Forms.Label();
             this._detectedFrequencyBox = new System.Windows.Forms.TextBox();
@@ -44,20 +44,21 @@
             this._differenceSlider = new NAudio.Gui.PanSlider();
             this._differenceBox = new System.Windows.Forms.TextBox();
             this._differenceLabel = new System.Windows.Forms.Label();
+            this._cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._detectLevelBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // _closeButton
+            // _okButton
             // 
-            this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._closeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._closeButton.Location = new System.Drawing.Point(1011, 622);
-            this._closeButton.Name = "_closeButton";
-            this._closeButton.Size = new System.Drawing.Size(75, 23);
-            this._closeButton.TabIndex = 1;
-            this._closeButton.Text = "_closeButton";
-            this._closeButton.UseVisualStyleBackColor = true;
+            this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this._okButton.Location = new System.Drawing.Point(1011, 622);
+            this._okButton.Name = "_okButton";
+            this._okButton.Size = new System.Drawing.Size(75, 23);
+            this._okButton.TabIndex = 1;
+            this._okButton.Text = "_okButton";
+            this._okButton.UseVisualStyleBackColor = true;
             // 
             // _spectrumChart
             // 
@@ -174,13 +175,24 @@
             this._differenceLabel.TabIndex = 17;
             this._differenceLabel.Text = "_differenceLabel";
             // 
+            // _cancelButton
+            // 
+            this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this._cancelButton.Location = new System.Drawing.Point(930, 622);
+            this._cancelButton.Name = "_cancelButton";
+            this._cancelButton.Size = new System.Drawing.Size(75, 23);
+            this._cancelButton.TabIndex = 18;
+            this._cancelButton.Text = "_cancelButton";
+            this._cancelButton.UseVisualStyleBackColor = true;
+            // 
             // AudioSpectrumAnalyser
             // 
-            this.AcceptButton = this._closeButton;
+            this.AcceptButton = this._okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this._closeButton;
+            this.CancelButton = this._okButton;
             this.ClientSize = new System.Drawing.Size(1098, 657);
+            this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._differenceBox);
             this.Controls.Add(this._differenceSlider);
             this.Controls.Add(this._detectedNoteBox);
@@ -191,7 +203,7 @@
             this.Controls.Add(this._detectedFrequencyBox);
             this.Controls.Add(this._detectedFrequencyLabel);
             this.Controls.Add(this._spectrumChart);
-            this.Controls.Add(this._closeButton);
+            this.Controls.Add(this._okButton);
             this.Controls.Add(this._differenceLabel);
             this.Name = "AudioSpectrumAnalyser";
             this.Text = "SpectrumAnalyser";
@@ -205,7 +217,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button _closeButton;
+        private System.Windows.Forms.Button _okButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart _spectrumChart;
         private System.Windows.Forms.Label _detectedFrequencyLabel;
         private System.Windows.Forms.TextBox _detectedFrequencyBox;
@@ -217,5 +229,6 @@
         private NAudio.Gui.PanSlider _differenceSlider;
         private System.Windows.Forms.TextBox _differenceBox;
         private System.Windows.Forms.Label _differenceLabel;
+        private System.Windows.Forms.Button _cancelButton;
     }
 }

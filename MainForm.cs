@@ -48,9 +48,11 @@ namespace SendVoiceCommands
         private static int fftLength = 2048; // 8192; 
 
         // There might be a sample aggregator in NAudio somewhere but I made a variation for my needs
-        private AudioSampleAggregator sampleAggregator = new AudioSampleAggregator(fftLength);
+        private AudioSampleAggregator _sampleAggregator = new AudioSampleAggregator(fftLength);
 
         private AudioSpectrumUtils _spectrumUtils;
+
+        private short _detectLevel = 0;
 
         /// <summary>
         /// Stores the application properties in a XML file.
@@ -76,6 +78,10 @@ namespace SendVoiceCommands
             _loadProfileBox.Text = "";
             _loadProfileLabel.Text = "Stored profile:";
             _createNewProfileButton.Text = "Create New";
+            _eventsLabel.Text = "Events:";
+            _eventsCreateButton.Text = "Create New";
+            _eventsDeleteButton.Text = "Delete";
+            _eventsEditButton.Text = "Edit";
 
             refreshProcessList();
 
@@ -85,7 +91,7 @@ namespace SendVoiceCommands
 
             _spectrumUtils = new AudioSpectrumUtils(waveIn, fftLength);
             _applicationProperties = new ApplicationProperties();
-            _applicationProperties.EventList = new MusicNoteEvent[1];
+            _applicationProperties.EventList = new MusicalNoteEvent[1];
             _applicationProperties.Settings = new CommonSettings();
         }
 
@@ -165,7 +171,7 @@ namespace SendVoiceCommands
                 // calculate maximum value
                 max = calculateMaximum(max, sample32);
                 // perform FFT analysis
-                sampleAggregator.Add(sample32);
+                _sampleAggregator.Add(sample32);
             }
 
             int percentValue = (int)(100 * (max / 32768f));
@@ -209,8 +215,13 @@ namespace SendVoiceCommands
 
         private void _spectrumButton_Click(object sender, EventArgs e)
         {
-            AudioSpectrumAnalyser dialog = new AudioSpectrumAnalyser(waveIn, sampleAggregator, _spectrumUtils);
-            dialog.ShowDialog();
+            AudioSpectrumAnalyser dialog = new AudioSpectrumAnalyser(waveIn, _sampleAggregator, _spectrumUtils, _detectLevel);
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                _detectLevel = dialog.GetDetectLevel();
+                _applicationProperties.Settings.FrequenceDetectLevel = _detectLevel;
+                SaveProfile();
+            }
         }
 
         private void EnableGame(bool enable)
@@ -263,8 +274,14 @@ namespace SendVoiceCommands
 
         private void EnableProfileEdit(bool status)
         {
+            _spectrumButton.Enabled = status;
             _processesBox.Enabled = status;
             _refreshButton.Enabled = status;
+            _eventsCreateButton.Enabled = status;
+            _eventsDeleteButton.Enabled = status;
+            _eventsListBox.Enabled = status;
+            _eventsEditButton.Enabled = false;
+
             if(status)
             {
                 _profileFilename = _loadProfileBox.Text;
@@ -282,6 +299,7 @@ namespace SendVoiceCommands
             if(_saveProfileDialog.ShowDialog() == DialogResult.OK)
             {
                 _loadProfileBox.Text = _saveProfileDialog.FileName;
+                ResetSettings();
                 SaveProfile();
             }
         }
@@ -320,6 +338,41 @@ namespace SendVoiceCommands
                     _processesBox.SelectedItem = itemObject;
                     break;
                 }
+            }
+            _detectLevel = _applicationProperties.Settings.FrequenceDetectLevel;
+        }
+
+        private void ResetSettings()
+        {
+            _detectLevel = 1000;
+            _applicationProperties.Settings.FrequenceDetectLevel = _detectLevel;
+            _processesBox.Items.Clear();
+            _processesBox.SelectedItem = null;
+            _processesBox.Text = "";
+            _applicationProperties.Settings.ApplicationName = "";
+        }
+
+        private void _eventsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(_eventsListBox.SelectedItem != null)
+            {
+                _eventsEditButton.Enabled = true;
+            }
+            else
+            {
+                _eventsEditButton.Enabled = false;
+            }
+        }
+
+        private void _eventsCreateButton_Click(object sender, EventArgs e)
+        {
+            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel);
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                _detectLevel = dialog.GetDetectLevel();
+                _applicationProperties.Settings.FrequenceDetectLevel = _detectLevel;
+                SaveProfile();
+                MessageBox.Show("OK");
             }
         }
     }

@@ -17,35 +17,37 @@
  **/
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SendVoiceCommands
 {
-    /// <summary>
-    /// Form that shows the analysed FFT spectrum.
-    /// </summary>
-    public partial class AudioSpectrumAnalyser : Form
+    public partial class EventsEditForm : Form
     {
-        private NAudio.Wave.WaveInEvent _waveIn;
+        private AudioSampleAggregator _sampleAggregator;
+        private EventHandler<AudioSampleAggregator.FftEventArgs> _fftEventHandler;
         private AudioSpectrumUtils _spectrumUtils;
         private MusicNoteUtils _musicNoteUtils;
-        private AudioSampleAggregator _sampleAggregator;
-        private Series _spectrumSeries;
-        private Series _detectLevelSeries;
-        private EventHandler<AudioSampleAggregator.FftEventArgs> _fftEventHandler;
         private int _minimumFrequencyIndex;
         private int _maximumFrequencyIndex;
-        private bool _changeLevelBox = false;
+        private Series _spectrumSeries;
+        private Series _detectLevelSeries;
         private short _detectLevel = 0;
         private int _xAxixMinimum = 50;
         private int _xAxisMaximum = 900;
+        private bool _changeLevelBox = false;
 
-        public AudioSpectrumAnalyser(NAudio.Wave.WaveInEvent waveIn, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel)
+        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel)
         {
             InitializeComponent();
 
-            // initialize chart
             _spectrumSeries = _spectrumChart.Series["spectrumSeries"];
             _spectrumSeries.LegendText = "Frequency Spectrum";
             _spectrumSeries.Points.Clear();
@@ -55,30 +57,30 @@ namespace SendVoiceCommands
             _detectLevelSeries = _spectrumChart.Series["detectLevelSeries"];
             _detectLevelSeries.LegendText = "Detect Level";
 
+            Text = title;
             _okButton.Text = "OK";
             _cancelButton.Text = "Cancel";
-            _spectrumChart.Text = "Spectrum";
+            _infoLabel.Text = "Information:";
+            _spectrumLabel.Text = "Frequence Spectrum";
             _detectedFrequencyLabel.Text = "detected Frequence:";
             _detectedFrequencyBox.Text = "0 HZ";
-            _detectLevelLabel.Text = "Detect-Level:";
-            _detectLevelBox.Text = "0";
             _detectedNoteLabel.Text = "detected Note:";
             _detectedNoteBox.Text = "-";
             _differenceBox.Text = "";
             _differenceLabel.Text = "Deviation:";
+            _detectLevelLabel.Text = "Detect-Level:";
+            _detectLevelBox.Text = "0";
 
             _detectLevel = detectLevel;
             _detectLevelBar.Minimum = 0;
             _detectLevelBar.Maximum = 15000;
-            _detectLevelBar.Value = (int)_detectLevel;
+            _detectLevelBar.Value = _detectLevel;
 
-            // initialize sampling and FFT analyse of audio data
-            _spectrumUtils = spectrumUtils;
-            _waveIn = waveIn;
             _sampleAggregator = sampleAggregator;
             _fftEventHandler = new EventHandler<AudioSampleAggregator.FftEventArgs>(FftCalculated);
-            _sampleAggregator.addEventHandler( _fftEventHandler );
+            _sampleAggregator.addEventHandler(_fftEventHandler);
             _sampleAggregator.PerformFFT = true;
+            _spectrumUtils = spectrumUtils;
             _minimumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(55);   // tone A1 
             _maximumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(880);  // tone a2
 
@@ -90,7 +92,57 @@ namespace SendVoiceCommands
             return _detectLevel;
         }
 
-        private void FftCalculated(object sender, AudioSampleAggregator.FftEventArgs e)
+        private void EventsEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _sampleAggregator.PerformFFT = false;
+            _sampleAggregator.removeEventHandler(_fftEventHandler);
+        }
+
+        private void _detectLevelBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (!_changeLevelBox) // avoid updating text-box by bar when insert value is outside of bar area.
+            {
+                _detectLevelBox.Text = _detectLevelBar.Value.ToString();
+            }
+        }
+
+        private void _detectLevelBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void _detectLevelBox_TextChanged(object sender, EventArgs e)
+        {
+            if (_detectLevelBox.Text.Length == 0)
+            {
+                return;
+            }
+
+            _detectLevel = Int16.Parse(_detectLevelBox.Text);
+            if (_detectLevel < 0)
+            {
+                _detectLevel = 0;
+            }
+            if (_detectLevel < _detectLevelBar.Minimum)
+            {
+                _changeLevelBox = true;
+                _detectLevelBar.Value = _detectLevelBar.Minimum;
+                _changeLevelBox = false;
+            }
+            else if (_detectLevel > _detectLevelBar.Maximum)
+            {
+                _changeLevelBox = true;
+                _detectLevelBar.Value = _detectLevelBar.Maximum;
+                _changeLevelBox = false;
+            }
+            else
+            {
+                _detectLevelBar.Value = _detectLevel;
+            }
+            ProcessDefinedDetectLevel(_detectLevel);
+        }
+
+        void FftCalculated(object sender, AudioSampleAggregator.FftEventArgs e)
         {
             float[] frequencyValues = new float[_maximumFrequencyIndex - _minimumFrequencyIndex + 1];
             _spectrumSeries.Points.Clear();
@@ -116,63 +168,6 @@ namespace SendVoiceCommands
             }
         }
 
-        private void SpectrumAnalyser_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _sampleAggregator.PerformFFT = false;
-            _sampleAggregator.removeEventHandler( _fftEventHandler );
-        }
-
-        private void _detectLevelBar_ValueChanged(object sender, EventArgs e)
-        {
-            if (!_changeLevelBox) // avoid updating text-box by bar when insert value is outside of bar area.
-            {
-                _detectLevelBox.Text = _detectLevelBar.Value.ToString();
-            }
-        }
- 
-        private void _detectLevelBox_TextChanged(object sender, EventArgs e)
-        {
-            if (_detectLevelBox.Text.Length == 0)
-            {
-                return;
-            }
-
-            _detectLevel = Int16.Parse(_detectLevelBox.Text);
-            if (_detectLevel< 0)
-            {
-                _detectLevel = 0;
-            }
-            if (_detectLevel<_detectLevelBar.Minimum)
-            {
-                _changeLevelBox = true;
-                _detectLevelBar.Value = _detectLevelBar.Minimum;
-                _changeLevelBox = false;
-            }
-            else if (_detectLevel > _detectLevelBar.Maximum)
-            {
-                _changeLevelBox = true;
-                _detectLevelBar.Value = _detectLevelBar.Maximum;
-                _changeLevelBox = false;
-            }
-            else
-            {
-                _detectLevelBar.Value = _detectLevel;
-            }
-            ProcessDefinedDetectLevel(_detectLevel);
-        }
-
-        private void _detectLevelBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void ProcessDefinedDetectLevel(short level)
-        {
-            _detectLevelSeries.Points.Clear();
-            _detectLevelSeries.Points.AddXY(_xAxixMinimum, level);
-            _detectLevelSeries.Points.AddXY(_xAxisMaximum, level);
-        }
-
         private void ProcessDetectedFrequency(float frequency)
         {
             int pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
@@ -182,10 +177,10 @@ namespace SendVoiceCommands
             float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey);
             float difference = musicNoteFrequency - frequency;
             _differenceBox.Text = difference.ToString() + " Hz";
-            if(difference < 0f)
+            if (difference < 0f)
             {
                 // calculate % distance to next lower note
-                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey-1);
+                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey - 1);
                 float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
                 _differenceSlider.Pan = distance;
             }
@@ -196,6 +191,13 @@ namespace SendVoiceCommands
                 float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
                 _differenceSlider.Pan = distance;
             }
+        }
+
+        private void ProcessDefinedDetectLevel(short level)
+        {
+            _detectLevelSeries.Points.Clear();
+            _detectLevelSeries.Points.AddXY(_xAxixMinimum, level);
+            _detectLevelSeries.Points.AddXY(_xAxisMaximum, level);
         }
     }
 }

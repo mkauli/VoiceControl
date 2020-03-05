@@ -26,7 +26,7 @@ namespace SendVoiceCommands {
         
         private CommonSettings settingsField;
         
-        private MusicNoteEvent[] eventListField;
+        private MusicalNoteEvent[] eventListField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -42,7 +42,7 @@ namespace SendVoiceCommands {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [System.Xml.Serialization.XmlArrayItemAttribute("Events", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public MusicNoteEvent[] EventList {
+        public MusicalNoteEvent[] EventList {
             get {
                 return this.eventListField;
             }
@@ -65,8 +65,6 @@ namespace SendVoiceCommands {
         
         private short frequenceDetectLevelField;
         
-        private bool frequenceDetectLevelFieldSpecified;
-        
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string ApplicationName {
@@ -88,17 +86,6 @@ namespace SendVoiceCommands {
                 this.frequenceDetectLevelField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FrequenceDetectLevelSpecified {
-            get {
-                return this.frequenceDetectLevelFieldSpecified;
-            }
-            set {
-                this.frequenceDetectLevelFieldSpecified = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -108,13 +95,11 @@ namespace SendVoiceCommands {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.exampleURI.com/Schema1")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.exampleURI.com/Schema1", IsNullable=false)]
-    public partial class MusicNoteEvent {
+    public partial class MusicalNoteEvent {
         
         private string nameField;
         
         private short pianoKeyField;
-        
-        private bool pianoKeyFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -137,17 +122,6 @@ namespace SendVoiceCommands {
                 this.pianoKeyField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PianoKeySpecified {
-            get {
-                return this.pianoKeyFieldSpecified;
-            }
-            set {
-                this.pianoKeyFieldSpecified = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -157,13 +131,13 @@ namespace SendVoiceCommands {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.exampleURI.com/Schema1")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.exampleURI.com/Schema1", IsNullable=false)]
-    public partial class MusicNoteEventList {
+    public partial class MusicalNoteEventList {
         
-        private MusicNoteEvent[] eventsField;
+        private MusicalNoteEvent[] eventsField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Events", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MusicNoteEvent[] Events {
+        public MusicalNoteEvent[] Events {
             get {
                 return this.eventsField;
             }

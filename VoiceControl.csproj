@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsEditForm.Designer.cs">
+      <DependentUpon>EventsEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MusicNoteUtils.cs" />
     <Compile Include="AudioSpectrumUtils.cs" />
     <Compile Include="MainForm.cs">
@@ -69,6 +75,9 @@
     <Compile Include="AudioSpectrumAnalyser.Designer.cs">
       <DependentUpon>AudioSpectrumAnalyser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EventsEditForm.resx">
+      <DependentUpon>EventsEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
