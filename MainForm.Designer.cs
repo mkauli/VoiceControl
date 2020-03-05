@@ -35,6 +35,12 @@
             this._spectrumButton = new System.Windows.Forms.Button();
             this._levelLabel = new System.Windows.Forms.Label();
             this._processLabel = new System.Windows.Forms.Label();
+            this._loadProfileBox = new System.Windows.Forms.TextBox();
+            this._loadProfileLabel = new System.Windows.Forms.Label();
+            this._loadProfileButton = new System.Windows.Forms.Button();
+            this._loadProfileDialog = new System.Windows.Forms.OpenFileDialog();
+            this._createNewProfileButton = new System.Windows.Forms.Button();
+            this._saveProfileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // _closeButton
@@ -54,7 +60,7 @@
             this._processesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._processesBox.FormattingEnabled = true;
-            this._processesBox.Location = new System.Drawing.Point(12, 25);
+            this._processesBox.Location = new System.Drawing.Point(12, 147);
             this._processesBox.Name = "_processesBox";
             this._processesBox.Size = new System.Drawing.Size(870, 21);
             this._processesBox.TabIndex = 1;
@@ -63,7 +69,7 @@
             // _refreshButton
             // 
             this._refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._refreshButton.Location = new System.Drawing.Point(888, 23);
+            this._refreshButton.Location = new System.Drawing.Point(888, 145);
             this._refreshButton.Name = "_refreshButton";
             this._refreshButton.Size = new System.Drawing.Size(75, 23);
             this._refreshButton.TabIndex = 2;
@@ -103,11 +109,64 @@
             // _processLabel
             // 
             this._processLabel.AutoSize = true;
-            this._processLabel.Location = new System.Drawing.Point(12, 9);
+            this._processLabel.Location = new System.Drawing.Point(12, 131);
             this._processLabel.Name = "_processLabel";
             this._processLabel.Size = new System.Drawing.Size(76, 13);
             this._processLabel.TabIndex = 9;
             this._processLabel.Text = "_processLabel";
+            // 
+            // _loadProfileBox
+            // 
+            this._loadProfileBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._loadProfileBox.Location = new System.Drawing.Point(12, 27);
+            this._loadProfileBox.Name = "_loadProfileBox";
+            this._loadProfileBox.Size = new System.Drawing.Size(835, 20);
+            this._loadProfileBox.TabIndex = 10;
+            this._loadProfileBox.Text = "_loadProfileBox";
+            this._loadProfileBox.TextChanged += new System.EventHandler(this._loadProfileBox_TextChanged);
+            // 
+            // _loadProfileLabel
+            // 
+            this._loadProfileLabel.AutoSize = true;
+            this._loadProfileLabel.Location = new System.Drawing.Point(12, 11);
+            this._loadProfileLabel.Name = "_loadProfileLabel";
+            this._loadProfileLabel.Size = new System.Drawing.Size(88, 13);
+            this._loadProfileLabel.TabIndex = 11;
+            this._loadProfileLabel.Text = "_loadProfileLabel";
+            // 
+            // _loadProfileButton
+            // 
+            this._loadProfileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._loadProfileButton.Location = new System.Drawing.Point(853, 25);
+            this._loadProfileButton.Name = "_loadProfileButton";
+            this._loadProfileButton.Size = new System.Drawing.Size(29, 23);
+            this._loadProfileButton.TabIndex = 12;
+            this._loadProfileButton.Text = "...";
+            this._loadProfileButton.UseVisualStyleBackColor = true;
+            this._loadProfileButton.Click += new System.EventHandler(this._loadProfileButton_Click);
+            // 
+            // _loadProfileDialog
+            // 
+            this._loadProfileDialog.DefaultExt = "*.xml";
+            this._loadProfileDialog.Filter = "XML-Files (*.xml)|*.xml|All-Files (*.*)|*.*";
+            this._loadProfileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // _createNewProfileButton
+            // 
+            this._createNewProfileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._createNewProfileButton.Location = new System.Drawing.Point(888, 24);
+            this._createNewProfileButton.Name = "_createNewProfileButton";
+            this._createNewProfileButton.Size = new System.Drawing.Size(75, 23);
+            this._createNewProfileButton.TabIndex = 13;
+            this._createNewProfileButton.Text = "_createNewProfileButton";
+            this._createNewProfileButton.UseVisualStyleBackColor = true;
+            this._createNewProfileButton.Click += new System.EventHandler(this._createNewProfileButton_Click);
+            // 
+            // _saveProfileDialog
+            // 
+            this._saveProfileDialog.DefaultExt = "*.xml";
+            this._saveProfileDialog.Filter = "XML-Files (*.xml)|*.xml";
             // 
             // MainForm
             // 
@@ -115,6 +174,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 560);
+            this.Controls.Add(this._createNewProfileButton);
+            this.Controls.Add(this._loadProfileButton);
+            this.Controls.Add(this._loadProfileLabel);
+            this.Controls.Add(this._loadProfileBox);
             this.Controls.Add(this._processLabel);
             this.Controls.Add(this._levelLabel);
             this.Controls.Add(this._spectrumButton);
@@ -138,6 +201,12 @@
         private System.Windows.Forms.Button _spectrumButton;
         private System.Windows.Forms.Label _levelLabel;
         private System.Windows.Forms.Label _processLabel;
+        private System.Windows.Forms.TextBox _loadProfileBox;
+        private System.Windows.Forms.Label _loadProfileLabel;
+        private System.Windows.Forms.Button _loadProfileButton;
+        private System.Windows.Forms.OpenFileDialog _loadProfileDialog;
+        private System.Windows.Forms.Button _createNewProfileButton;
+        private System.Windows.Forms.SaveFileDialog _saveProfileDialog;
     }
 }
 

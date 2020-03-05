@@ -57,6 +57,11 @@ namespace SendVoiceCommands
         /// </summary>
         private ApplicationProperties _applicationProperties;
 
+        /// <summary>
+        /// Name of the profile/setting xml-file.
+        /// </summary>
+        private string _profileFilename;
+
         public MainForm()
         {
             InitializeComponent();
@@ -67,6 +72,10 @@ namespace SendVoiceCommands
             _spectrumButton.Text = "Spectrum";
             _levelLabel.Text = "Sound Level:";
             _processLabel.Text = "Select Windows Application:";
+            _loadProfileButton.Text = "...";
+            _loadProfileBox.Text = "";
+            _loadProfileLabel.Text = "Stored profile:";
+            _createNewProfileButton.Text = "Create New";
 
             refreshProcessList();
 
@@ -210,7 +219,7 @@ namespace SendVoiceCommands
             if (item != null)
             {
                 _applicationProperties.Settings.ApplicationName = item.applicationName;
-                StoreApplicationSettings();
+                SaveProfile();
             }
         }
 
@@ -227,13 +236,91 @@ namespace SendVoiceCommands
             //SendKeys.Flush();
         }
 
-        private void StoreApplicationSettings()
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(ApplicationProperties));
-            System.IO.TextWriter writer = new System.IO.StreamWriter("settings.xml");
-            serializer.Serialize(writer, _applicationProperties);
-            writer.Close();
 
+        }
+
+        private void _loadProfileButton_Click(object sender, EventArgs e)
+        {
+            if(_loadProfileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _loadProfileBox.Text = _loadProfileDialog.FileName;
+            }
+        }
+
+        private void _loadProfileBox_TextChanged(object sender, EventArgs e)
+        {
+            if(System.IO.File.Exists(_loadProfileBox.Text))
+            {
+                EnableProfileEdit(true);
+            }
+            else
+            {
+                EnableProfileEdit(false);
+            }
+        }
+
+        private void EnableProfileEdit(bool status)
+        {
+            _processesBox.Enabled = status;
+            _refreshButton.Enabled = status;
+            if(status)
+            {
+                _profileFilename = _loadProfileBox.Text;
+                LoadProfile();
+
+            }
+            else
+            {
+                _profileFilename = "";
+            }
+        }
+
+        private void _createNewProfileButton_Click(object sender, EventArgs e)
+        {
+            if(_saveProfileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _loadProfileBox.Text = _saveProfileDialog.FileName;
+                SaveProfile();
+            }
+        }
+
+        private void SaveProfile()
+        {
+            if (_profileFilename != "")
+            {
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(ApplicationProperties));
+                System.IO.TextWriter writer = new System.IO.StreamWriter(_profileFilename);
+                serializer.Serialize(writer, _applicationProperties);
+                writer.Close();
+            }
+        }
+
+        private void LoadProfile()
+        {
+            if (_profileFilename != "")
+            {
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(ApplicationProperties));
+                System.IO.TextReader reader = new System.IO.StreamReader(_profileFilename);
+                _applicationProperties = serializer.Deserialize(reader) as ApplicationProperties;
+                reader.Close();
+                UpdateGui();
+            }
+        }
+
+        private void UpdateGui()
+        {
+            refreshProcessList();
+            foreach( object itemObject in _processesBox.Items )
+            {
+                ProcessItem item = itemObject as ProcessItem;
+                if(item.applicationName == _applicationProperties.Settings.ApplicationName)
+                {
+                    _processesBox.SelectedItem = itemObject;
+                    break;
+                }
+            }
         }
     }
 }
