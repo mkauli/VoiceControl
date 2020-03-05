@@ -213,6 +213,7 @@
             this._eventsDeleteButton.TabIndex = 17;
             this._eventsDeleteButton.Text = "_eventsDeleteButton";
             this._eventsDeleteButton.UseVisualStyleBackColor = true;
+            this._eventsDeleteButton.Click += new System.EventHandler(this._eventsDeleteButton_Click);
             // 
             // _eventsEditButton
             // 

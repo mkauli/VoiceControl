@@ -31,6 +31,52 @@ namespace SendVoiceCommands
 {
     public partial class EventsEditForm : Form
     {
+        public struct EventKey
+        {
+            public bool Control;
+            public bool Alt;
+            public bool Shift;
+            public int Value;
+
+            public override string ToString()
+            {
+                string s = "";
+                if (Control) s += "[Ctrl]";
+                if (Alt) s += "[Alt]";
+                if (Shift) s += "[Shift]";
+
+                switch(Value)
+                {
+                    case 0:
+                        break;
+                    case 8:
+                        s += "[Back]";
+                        break;
+                    case 27:
+                        s += "[Esc]";
+                        break;
+                    case 37:
+                        s += "[Left]";
+                        break;
+                    case 38:
+                        s += "[Up]";
+                        break;
+                    case 39:
+                        s += "[Right]";
+                        break;
+                    case 40:
+                        s += "[Down]";
+                        break;
+                    default:
+                        s += (char)Value;
+                        break;
+
+                }
+
+                return s;
+            }
+        }
+
         private AudioSampleAggregator _sampleAggregator;
         private EventHandler<AudioSampleAggregator.FftEventArgs> _fftEventHandler;
         private AudioSpectrumUtils _spectrumUtils;
@@ -43,6 +89,7 @@ namespace SendVoiceCommands
         private int _xAxixMinimum = 50;
         private int _xAxisMaximum = 900;
         private bool _changeLevelBox = false;
+        private EventKey _eventKey;
 
         public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel)
         {
@@ -70,6 +117,11 @@ namespace SendVoiceCommands
             _differenceLabel.Text = "Deviation:";
             _detectLevelLabel.Text = "Detect-Level:";
             _detectLevelBox.Text = "0";
+            _eventLabel.Text = "Event:";
+            _nameLabel.Text = "Name:";
+            _nameBox.Text = "";
+            _keyLabel.Text = "Key:";
+            _eventBox.Text = "";
 
             _detectLevel = detectLevel;
             _detectLevelBar.Minimum = 0;
@@ -85,11 +137,23 @@ namespace SendVoiceCommands
             _maximumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(880);  // tone a2
 
             _musicNoteUtils = new MusicNoteUtils();
+
+            _eventKey = new EventKey();
         }
 
         public short GetDetectLevel()
         {
             return _detectLevel;
+        }
+
+        public string GetEventName()
+        {
+            return _nameBox.Text;
+        }
+
+        public EventKey GetEventKey()
+        {
+            return _eventKey;
         }
 
         private void EventsEditForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -198,6 +262,41 @@ namespace SendVoiceCommands
             _detectLevelSeries.Points.Clear();
             _detectLevelSeries.Points.AddXY(_xAxixMinimum, level);
             _detectLevelSeries.Points.AddXY(_xAxisMaximum, level);
+        }
+
+        private void _eventBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+
+            _eventKey.Control = e.Control;
+            _eventKey.Shift = e.Shift;
+            _eventKey.Alt = e.Alt;
+            _eventKey.Value = 0;
+            switch (e.KeyValue)
+            {
+                case 16:
+                case 17:
+                case 18:
+                    break;
+
+                default:
+                    _eventKey.Value = e.KeyValue;
+                    break;
+            }
+            _eventBox.Text = _eventKey.ToString();
+        }
+
+        private void _nameBox_TextChanged(object sender, EventArgs e)
+        {
+            if(_nameBox.Text.Length == 0)
+            {
+                _okButton.Enabled = false;
+            }
+            else
+            {
+                _okButton.Enabled = true;
+            }
         }
     }
 }

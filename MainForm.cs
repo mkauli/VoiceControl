@@ -17,6 +17,7 @@
  **/
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -80,7 +81,7 @@ namespace SendVoiceCommands
             _createNewProfileButton.Text = "Create New";
             _eventsLabel.Text = "Events:";
             _eventsCreateButton.Text = "Create New";
-            _eventsDeleteButton.Text = "Delete";
+            _eventsDeleteButton.Text = "Remove";
             _eventsEditButton.Text = "Edit";
 
             refreshProcessList();
@@ -340,6 +341,7 @@ namespace SendVoiceCommands
                 }
             }
             _detectLevel = _applicationProperties.Settings.FrequenceDetectLevel;
+            RefreshEventsList();
         }
 
         private void ResetSettings()
@@ -350,6 +352,8 @@ namespace SendVoiceCommands
             _processesBox.SelectedItem = null;
             _processesBox.Text = "";
             _applicationProperties.Settings.ApplicationName = "";
+            _applicationProperties.EventList = new MusicalNoteEvent[0];
+            RefreshEventsList();
         }
 
         private void _eventsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -369,10 +373,48 @@ namespace SendVoiceCommands
             EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel);
             if(dialog.ShowDialog() == DialogResult.OK)
             {
+                // handle set detection level
                 _detectLevel = dialog.GetDetectLevel();
                 _applicationProperties.Settings.FrequenceDetectLevel = _detectLevel;
+
+                // create the Event
+                int currentEventListLength = _applicationProperties.EventList.Length;
+                MusicalNoteEvent[] newEventList = _applicationProperties.EventList.Clone() as MusicalNoteEvent[];
+                Array.Resize(ref newEventList, currentEventListLength + 1);
+                newEventList[currentEventListLength] = new MusicalNoteEvent();
+                newEventList[currentEventListLength].Name = dialog.GetEventName();
+                _applicationProperties.EventList = newEventList.Clone() as MusicalNoteEvent[];
+
+                // handle key setting
+                //EventsEditForm.EventKey eventKey = dialog.GetEventKey();
+
+                RefreshEventsList();
                 SaveProfile();
-                MessageBox.Show("OK");
+            }
+        }
+
+        private void RefreshEventsList()
+        {
+            _eventsListBox.Items.Clear();
+            _eventsListBox.Text = "";
+            _eventsListBox.SelectedItem = null;
+
+            foreach(MusicalNoteEvent musicalNote in _applicationProperties.EventList)
+            {
+                _eventsListBox.Items.Add(musicalNote);
+            }
+        }
+
+        private void _eventsDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (_eventsListBox.SelectedItem != null)
+            {
+                // remove index from array
+                List<MusicalNoteEvent> tmp = new List<MusicalNoteEvent>(_applicationProperties.EventList);
+                tmp.RemoveAt(_eventsListBox.SelectedIndex);
+                _applicationProperties.EventList = tmp.ToArray();
+                RefreshEventsList();
+                SaveProfile();
             }
         }
     }

@@ -122,8 +122,12 @@ namespace SendVoiceCommands {
                 this.pianoKeyField = value;
             }
         }
+        override public string ToString()
+        {
+            return Name;
+        }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
     [System.SerializableAttribute()]
