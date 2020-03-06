@@ -297,9 +297,9 @@ namespace SendVoiceCommands
                 // store setting
                 if (_profileFilename != _loadProfileBox.Text)
                 {
+                    _profileFilename = _loadProfileBox.Text;
                     SendVoiceCommands.Properties.Settings.Default.LastProfileFilename = _profileFilename;
                     SendVoiceCommands.Properties.Settings.Default.Save();
-                    _profileFilename = _loadProfileBox.Text;
                 }
                 LoadProfile();
             }
