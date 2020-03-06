@@ -96,8 +96,13 @@ namespace SendVoiceCommands
             _applicationProperties.EventList = new MusicalNoteEvent[1];
             _applicationProperties.Settings = new CommonSettings();
 
-            _profileFilename = SendVoiceCommands.Properties.Settings.Default.LastProfileFilename;
-            _loadProfileBox.Text = _profileFilename;
+            // load application settings
+            string storedProfileFilename = SendVoiceCommands.Properties.Settings.Default.LastProfileFilename;
+            if (System.IO.File.Exists(storedProfileFilename))
+            {
+                _profileFilename = storedProfileFilename;
+                _loadProfileBox.Text = _profileFilename;
+            }
         }
 
         private void closeButton__Click(object sender, EventArgs e)
