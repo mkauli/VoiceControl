@@ -83,6 +83,7 @@ namespace SendVoiceCommands
         private MusicNoteUtils _musicNoteUtils;
         private MusicalNoteEvent _musicalNoteEvent;
         private EventTrigger _eventTrigger;
+        private ProcessItem _processItem;
         private int _minimumFrequencyIndex;
         private int _maximumFrequencyIndex;
         private Series _spectrumSeries;
@@ -95,7 +96,7 @@ namespace SendVoiceCommands
         private short _pianoKey;
         private short _halftoneTolerance;
 
-        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent, EventTrigger eventTrigger)
+        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent, EventTrigger eventTrigger, ProcessItem processItem)
         {
             InitializeComponent();
 
@@ -147,6 +148,7 @@ namespace SendVoiceCommands
             _musicNoteUtils = new MusicNoteUtils();
             _eventTrigger = eventTrigger;
             _musicalNoteEvent = musicalNoteEvent;
+            _processItem = processItem;
 
             _eventKey = new EventKey();
 
@@ -348,7 +350,7 @@ namespace SendVoiceCommands
 
         private void _testEventButton_Click(object sender, EventArgs e)
         {
-            _eventTrigger.Trigger(_musicalNoteEvent);
+            _eventTrigger.Trigger(_musicalNoteEvent, _processItem);
         }
     }
 }

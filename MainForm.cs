@@ -29,18 +29,6 @@ namespace SendVoiceCommands
     /// </summary>
     public partial class MainForm : Form
     {
-        class ProcessItem
-        {
-            public string title;
-            public System.Diagnostics.Process process;
-            public string applicationName;
-
-            override public string ToString()
-            {
-                return title;
-            }
-        };
-
         [DllImport("user32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
@@ -70,6 +58,11 @@ namespace SendVoiceCommands
         /// This instance processes the event trigger.
         /// </summary>
         private EventTrigger _eventTrigger;
+
+        /// <summary>
+        /// The selected process that should receive the musical event.
+        /// </summary>
+        private ProcessItem _processItem = null;
 
         public MainForm()
         {
@@ -243,10 +236,10 @@ namespace SendVoiceCommands
 
         private void EnableGame(bool enable)
         {
-            ProcessItem item = _processesBox.SelectedItem as ProcessItem;
-            if (item != null)
+            _processItem = _processesBox.SelectedItem as ProcessItem;
+            if (_processItem != null)
             {
-                _applicationProperties.Settings.ApplicationName = item.applicationName;
+                _applicationProperties.Settings.ApplicationName = _processItem.applicationName;
                 SaveProfile();
             }
         }
@@ -391,7 +384,7 @@ namespace SendVoiceCommands
 
         private void _eventsCreateButton_Click(object sender, EventArgs e)
         {
-            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger);
+            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger, _processItem);
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 HandleEventDialogData(dialog, null);
@@ -403,7 +396,7 @@ namespace SendVoiceCommands
             if (_eventsListBox.SelectedItem != null)
             {
                 MusicalNoteEvent musicalNoteEvent = _eventsListBox.SelectedItem as MusicalNoteEvent;
-                EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger);
+                EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger, _processItem);
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     HandleEventDialogData(dialog, musicalNoteEvent);

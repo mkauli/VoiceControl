@@ -24,10 +24,26 @@ using System.Threading.Tasks;
 
 namespace SendVoiceCommands
 {
+    public class ProcessItem
+    {
+        public string title;
+        public System.Diagnostics.Process process;
+        public string applicationName;
+
+        override public string ToString()
+        {
+            return title;
+        }
+    };
+
     public class EventTrigger
     {
-        public void Trigger(MusicalNoteEvent musicalNoteEvent)
+        public void Trigger(MusicalNoteEvent musicalNoteEvent, ProcessItem processItem)
         {
+            if(processItem != null)
+            {
+
+            }
         }
     }
 }
