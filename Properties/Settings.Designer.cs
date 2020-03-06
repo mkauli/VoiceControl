@@ -22,5 +22,17 @@ namespace SendVoiceCommands.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastProfileFilename {
+            get {
+                return ((string)(this["LastProfileFilename"]));
+            }
+            set {
+                this["LastProfileFilename"] = value;
+            }
+        }
     }
 }

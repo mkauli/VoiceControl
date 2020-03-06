@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -94,6 +95,9 @@ namespace SendVoiceCommands
             _applicationProperties = new ApplicationProperties();
             _applicationProperties.EventList = new MusicalNoteEvent[1];
             _applicationProperties.Settings = new CommonSettings();
+
+            _profileFilename = SendVoiceCommands.Properties.Settings.Default.LastProfileFilename;
+            _loadProfileBox.Text = _profileFilename;
         }
 
         private void closeButton__Click(object sender, EventArgs e)
@@ -285,9 +289,14 @@ namespace SendVoiceCommands
 
             if(status)
             {
-                _profileFilename = _loadProfileBox.Text;
+                // store setting
+                if (_profileFilename != _loadProfileBox.Text)
+                {
+                    SendVoiceCommands.Properties.Settings.Default.LastProfileFilename = _profileFilename;
+                    SendVoiceCommands.Properties.Settings.Default.Save();
+                    _profileFilename = _loadProfileBox.Text;
+                }
                 LoadProfile();
-
             }
             else
             {
