@@ -66,6 +66,11 @@ namespace SendVoiceCommands
         /// </summary>
         private string _profileFilename;
 
+        /// <summary>
+        /// This instance processes the event trigger.
+        /// </summary>
+        private EventTrigger _eventTrigger;
+
         public MainForm()
         {
             InitializeComponent();
@@ -103,6 +108,8 @@ namespace SendVoiceCommands
                 _profileFilename = storedProfileFilename;
                 _loadProfileBox.Text = _profileFilename;
             }
+
+            _eventTrigger = new EventTrigger();
         }
 
         private void closeButton__Click(object sender, EventArgs e)
@@ -384,7 +391,7 @@ namespace SendVoiceCommands
 
         private void _eventsCreateButton_Click(object sender, EventArgs e)
         {
-            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, null);
+            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger);
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 HandleEventDialogData(dialog, null);
@@ -396,7 +403,7 @@ namespace SendVoiceCommands
             if (_eventsListBox.SelectedItem != null)
             {
                 MusicalNoteEvent musicalNoteEvent = _eventsListBox.SelectedItem as MusicalNoteEvent;
-                EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent);
+                EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger);
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     HandleEventDialogData(dialog, musicalNoteEvent);

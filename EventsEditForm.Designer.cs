@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._spectrumChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -59,6 +59,7 @@
             this._musicalNoteBox = new System.Windows.Forms.TextBox();
             this._toleranceLabel = new System.Windows.Forms.Label();
             this._toleranceUpDown = new System.Windows.Forms.NumericUpDown();
+            this._testEventButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).BeginInit();
             this._infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._detectLevelBar)).BeginInit();
@@ -71,7 +72,7 @@
             // 
             this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(623, 563);
+            this._okButton.Location = new System.Drawing.Point(651, 567);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 0;
@@ -82,7 +83,7 @@
             // 
             this._cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(542, 563);
+            this._cancelButton.Location = new System.Drawing.Point(570, 567);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 1;
@@ -94,22 +95,22 @@
             this._spectrumChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea9.Name = "ChartArea1";
-            this._spectrumChart.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this._spectrumChart.Legends.Add(legend9);
+            chartArea2.Name = "ChartArea1";
+            this._spectrumChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this._spectrumChart.Legends.Add(legend2);
             this._spectrumChart.Location = new System.Drawing.Point(13, 68);
             this._spectrumChart.Name = "_spectrumChart";
-            series17.ChartArea = "ChartArea1";
-            series17.Legend = "Legend1";
-            series17.Name = "spectrumSeries";
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series18.Legend = "Legend1";
-            series18.Name = "detectLevelSeries";
-            this._spectrumChart.Series.Add(series17);
-            this._spectrumChart.Series.Add(series18);
-            this._spectrumChart.Size = new System.Drawing.Size(655, 146);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "spectrumSeries";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "detectLevelSeries";
+            this._spectrumChart.Series.Add(series3);
+            this._spectrumChart.Series.Add(series4);
+            this._spectrumChart.Size = new System.Drawing.Size(683, 150);
             this._spectrumChart.TabIndex = 8;
             this._spectrumChart.Text = "_spectrumChart";
             // 
@@ -188,7 +189,7 @@
             this._infoPanel.Controls.Add(this._detectedFrequencyLabel);
             this._infoPanel.Location = new System.Drawing.Point(12, 25);
             this._infoPanel.Name = "_infoPanel";
-            this._infoPanel.Size = new System.Drawing.Size(686, 79);
+            this._infoPanel.Size = new System.Drawing.Size(714, 79);
             this._infoPanel.TabIndex = 21;
             // 
             // _infoLabel
@@ -203,7 +204,7 @@
             // _detectLevelBox
             // 
             this._detectLevelBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._detectLevelBox.Location = new System.Drawing.Point(546, 16);
+            this._detectLevelBox.Location = new System.Drawing.Point(574, 16);
             this._detectLevelBox.Name = "_detectLevelBox";
             this._detectLevelBox.Size = new System.Drawing.Size(122, 20);
             this._detectLevelBox.TabIndex = 25;
@@ -217,7 +218,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._detectLevelBar.Location = new System.Drawing.Point(114, 13);
             this._detectLevelBar.Name = "_detectLevelBar";
-            this._detectLevelBar.Size = new System.Drawing.Size(412, 45);
+            this._detectLevelBar.Size = new System.Drawing.Size(440, 45);
             this._detectLevelBar.TabIndex = 24;
             this._detectLevelBar.ValueChanged += new System.EventHandler(this._detectLevelBar_ValueChanged);
             // 
@@ -242,7 +243,7 @@
             this._spectrumPanel.Controls.Add(this._spectrumChart);
             this._spectrumPanel.Location = new System.Drawing.Point(12, 146);
             this._spectrumPanel.Name = "_spectrumPanel";
-            this._spectrumPanel.Size = new System.Drawing.Size(685, 229);
+            this._spectrumPanel.Size = new System.Drawing.Size(713, 233);
             this._spectrumPanel.TabIndex = 26;
             // 
             // _spectrumLabel
@@ -267,9 +268,9 @@
             this._eventPanel.Controls.Add(this._nameLabel);
             this._eventPanel.Controls.Add(this._eventBox);
             this._eventPanel.Controls.Add(this._keyLabel);
-            this._eventPanel.Location = new System.Drawing.Point(12, 415);
+            this._eventPanel.Location = new System.Drawing.Point(12, 419);
             this._eventPanel.Name = "_eventPanel";
-            this._eventPanel.Size = new System.Drawing.Size(686, 120);
+            this._eventPanel.Size = new System.Drawing.Size(714, 120);
             this._eventPanel.TabIndex = 28;
             // 
             // _nameBox
@@ -278,7 +279,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._nameBox.Location = new System.Drawing.Point(97, 12);
             this._nameBox.Name = "_nameBox";
-            this._nameBox.Size = new System.Drawing.Size(571, 20);
+            this._nameBox.Size = new System.Drawing.Size(599, 20);
             this._nameBox.TabIndex = 3;
             this._nameBox.Text = "_nameBox";
             this._nameBox.TextChanged += new System.EventHandler(this._nameBox_TextChanged);
@@ -314,7 +315,7 @@
             // 
             this._eventLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._eventLabel.AutoSize = true;
-            this._eventLabel.Location = new System.Drawing.Point(12, 399);
+            this._eventLabel.Location = new System.Drawing.Point(12, 403);
             this._eventLabel.Name = "_eventLabel";
             this._eventLabel.Size = new System.Drawing.Size(66, 13);
             this._eventLabel.TabIndex = 29;
@@ -365,11 +366,23 @@
             this._toleranceUpDown.TabIndex = 30;
             this._toleranceUpDown.ValueChanged += new System.EventHandler(this._toleranceUpDown_ValueChanged);
             // 
+            // _testEventButton
+            // 
+            this._testEventButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._testEventButton.Location = new System.Drawing.Point(12, 567);
+            this._testEventButton.Name = "_testEventButton";
+            this._testEventButton.Size = new System.Drawing.Size(75, 23);
+            this._testEventButton.TabIndex = 30;
+            this._testEventButton.Text = "_testEventButton";
+            this._testEventButton.UseVisualStyleBackColor = true;
+            this._testEventButton.Click += new System.EventHandler(this._testEventButton_Click);
+            // 
             // EventsEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 598);
+            this.ClientSize = new System.Drawing.Size(738, 602);
+            this.Controls.Add(this._testEventButton);
             this.Controls.Add(this._eventLabel);
             this.Controls.Add(this._eventPanel);
             this.Controls.Add(this._spectrumLabel);
@@ -424,5 +437,6 @@
         private System.Windows.Forms.TextBox _musicalNoteBox;
         private System.Windows.Forms.Label _toleranceLabel;
         private System.Windows.Forms.NumericUpDown _toleranceUpDown;
+        private System.Windows.Forms.Button _testEventButton;
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="EventsEditForm.Designer.cs">
       <DependentUpon>EventsEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventTrigger.cs" />
     <Compile Include="MusicNoteUtils.cs" />
     <Compile Include="AudioSpectrumUtils.cs" />
     <Compile Include="MainForm.cs">

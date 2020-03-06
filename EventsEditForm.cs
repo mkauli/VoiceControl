@@ -81,6 +81,8 @@ namespace SendVoiceCommands
         private EventHandler<AudioSampleAggregator.FftEventArgs> _fftEventHandler;
         private AudioSpectrumUtils _spectrumUtils;
         private MusicNoteUtils _musicNoteUtils;
+        private MusicalNoteEvent _musicalNoteEvent;
+        private EventTrigger _eventTrigger;
         private int _minimumFrequencyIndex;
         private int _maximumFrequencyIndex;
         private Series _spectrumSeries;
@@ -93,7 +95,7 @@ namespace SendVoiceCommands
         private short _pianoKey;
         private short _halftoneTolerance;
 
-        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent)
+        public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent, EventTrigger eventTrigger)
         {
             InitializeComponent();
 
@@ -127,6 +129,7 @@ namespace SendVoiceCommands
             _musicalNoteLabel.Text = "Musical-Note:";
             _musicalNoteBox.Text = "";
             _toleranceLabel.Text = "Tolerance [+/- Half-Tone]:";
+            _testEventButton.Text = "Test";
 
             _detectLevel = detectLevel;
             _detectLevelBar.Minimum = 0;
@@ -142,6 +145,8 @@ namespace SendVoiceCommands
             _maximumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(880);  // tone a2
 
             _musicNoteUtils = new MusicNoteUtils();
+            _eventTrigger = eventTrigger;
+            _musicalNoteEvent = musicalNoteEvent;
 
             _eventKey = new EventKey();
 
@@ -268,6 +273,7 @@ namespace SendVoiceCommands
             _detectedFrequencyBox.Text = frequency.ToString() + " Hz";
             _detectedNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(_pianoKey);
             _musicalNoteBox.Text = _detectedNoteBox.Text;
+            _musicalNoteEvent.PianoKey = _pianoKey;
             // calculate difference to music note frequency
             float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(_pianoKey);
             float difference = musicNoteFrequency - frequency;
@@ -316,6 +322,10 @@ namespace SendVoiceCommands
                     break;
             }
             _eventBox.Text = _eventKey.ToString();
+            _musicalNoteEvent.KeyAlt = _eventKey.Alt;
+            _musicalNoteEvent.KeyControl = _eventKey.Control;
+            _musicalNoteEvent.KeyShift = _eventKey.Shift;
+            _musicalNoteEvent.KeyValue = _eventKey.Value;
         }
 
         private void _nameBox_TextChanged(object sender, EventArgs e)
@@ -333,6 +343,12 @@ namespace SendVoiceCommands
         private void _toleranceUpDown_ValueChanged(object sender, EventArgs e)
         {
             _halftoneTolerance = (short)_toleranceUpDown.Value;
+            _musicalNoteEvent.HalfToneTolerance = _halftoneTolerance;
+        }
+
+        private void _testEventButton_Click(object sender, EventArgs e)
+        {
+            _eventTrigger.Trigger(_musicalNoteEvent);
         }
     }
 }
