@@ -436,6 +436,8 @@ namespace SendVoiceCommands
             currentMusicalNote.KeyControl = eventKey.Control;
             currentMusicalNote.KeyShift = eventKey.Shift;
             currentMusicalNote.KeyValue = eventKey.Value;
+            currentMusicalNote.PianoKey = dialog.GetPianoKey();
+            currentMusicalNote.HalfToneTolerance = dialog.GetHalfToneTolerance();
 
             RefreshEventsList();
             SaveProfile();

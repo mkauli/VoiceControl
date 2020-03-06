@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._spectrumChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -50,16 +50,21 @@
             this._spectrumPanel = new System.Windows.Forms.Panel();
             this._spectrumLabel = new System.Windows.Forms.Label();
             this._eventPanel = new System.Windows.Forms.Panel();
+            this._nameBox = new System.Windows.Forms.TextBox();
+            this._nameLabel = new System.Windows.Forms.Label();
             this._eventBox = new System.Windows.Forms.TextBox();
             this._keyLabel = new System.Windows.Forms.Label();
             this._eventLabel = new System.Windows.Forms.Label();
-            this._nameLabel = new System.Windows.Forms.Label();
-            this._nameBox = new System.Windows.Forms.TextBox();
+            this._musicalNoteLabel = new System.Windows.Forms.Label();
+            this._musicalNoteBox = new System.Windows.Forms.TextBox();
+            this._toleranceLabel = new System.Windows.Forms.Label();
+            this._toleranceUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).BeginInit();
             this._infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._detectLevelBar)).BeginInit();
             this._spectrumPanel.SuspendLayout();
             this._eventPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._toleranceUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // _okButton
@@ -89,21 +94,21 @@
             this._spectrumChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this._spectrumChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this._spectrumChart.Legends.Add(legend2);
+            chartArea9.Name = "ChartArea1";
+            this._spectrumChart.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this._spectrumChart.Legends.Add(legend9);
             this._spectrumChart.Location = new System.Drawing.Point(13, 68);
             this._spectrumChart.Name = "_spectrumChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "spectrumSeries";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "detectLevelSeries";
-            this._spectrumChart.Series.Add(series3);
-            this._spectrumChart.Series.Add(series4);
+            series17.ChartArea = "ChartArea1";
+            series17.Legend = "Legend1";
+            series17.Name = "spectrumSeries";
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series18.Legend = "Legend1";
+            series18.Name = "detectLevelSeries";
+            this._spectrumChart.Series.Add(series17);
+            this._spectrumChart.Series.Add(series18);
             this._spectrumChart.Size = new System.Drawing.Size(655, 146);
             this._spectrumChart.TabIndex = 8;
             this._spectrumChart.Text = "_spectrumChart";
@@ -254,6 +259,10 @@
             this._eventPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._eventPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._eventPanel.Controls.Add(this._toleranceUpDown);
+            this._eventPanel.Controls.Add(this._toleranceLabel);
+            this._eventPanel.Controls.Add(this._musicalNoteBox);
+            this._eventPanel.Controls.Add(this._musicalNoteLabel);
             this._eventPanel.Controls.Add(this._nameBox);
             this._eventPanel.Controls.Add(this._nameLabel);
             this._eventPanel.Controls.Add(this._eventBox);
@@ -263,11 +272,31 @@
             this._eventPanel.Size = new System.Drawing.Size(686, 120);
             this._eventPanel.TabIndex = 28;
             // 
+            // _nameBox
+            // 
+            this._nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._nameBox.Location = new System.Drawing.Point(97, 12);
+            this._nameBox.Name = "_nameBox";
+            this._nameBox.Size = new System.Drawing.Size(571, 20);
+            this._nameBox.TabIndex = 3;
+            this._nameBox.Text = "_nameBox";
+            this._nameBox.TextChanged += new System.EventHandler(this._nameBox_TextChanged);
+            // 
+            // _nameLabel
+            // 
+            this._nameLabel.AutoSize = true;
+            this._nameLabel.Location = new System.Drawing.Point(10, 15);
+            this._nameLabel.Name = "_nameLabel";
+            this._nameLabel.Size = new System.Drawing.Size(65, 13);
+            this._nameLabel.TabIndex = 2;
+            this._nameLabel.Text = "_nameLabel";
+            // 
             // _eventBox
             // 
-            this._eventBox.Location = new System.Drawing.Point(72, 61);
+            this._eventBox.Location = new System.Drawing.Point(97, 38);
             this._eventBox.Name = "_eventBox";
-            this._eventBox.Size = new System.Drawing.Size(285, 20);
+            this._eventBox.Size = new System.Drawing.Size(571, 20);
             this._eventBox.TabIndex = 1;
             this._eventBox.Text = "_eventBox";
             this._eventBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this._eventBox_KeyDown);
@@ -275,7 +304,7 @@
             // _keyLabel
             // 
             this._keyLabel.AutoSize = true;
-            this._keyLabel.Location = new System.Drawing.Point(10, 68);
+            this._keyLabel.Location = new System.Drawing.Point(10, 41);
             this._keyLabel.Name = "_keyLabel";
             this._keyLabel.Size = new System.Drawing.Size(56, 13);
             this._keyLabel.TabIndex = 0;
@@ -291,25 +320,50 @@
             this._eventLabel.TabIndex = 29;
             this._eventLabel.Text = "_eventLabel";
             // 
-            // _nameLabel
+            // _musicalNoteLabel
             // 
-            this._nameLabel.AutoSize = true;
-            this._nameLabel.Location = new System.Drawing.Point(10, 15);
-            this._nameLabel.Name = "_nameLabel";
-            this._nameLabel.Size = new System.Drawing.Size(65, 13);
-            this._nameLabel.TabIndex = 2;
-            this._nameLabel.Text = "_nameLabel";
+            this._musicalNoteLabel.AutoSize = true;
+            this._musicalNoteLabel.Location = new System.Drawing.Point(10, 67);
+            this._musicalNoteLabel.Name = "_musicalNoteLabel";
+            this._musicalNoteLabel.Size = new System.Drawing.Size(97, 13);
+            this._musicalNoteLabel.TabIndex = 4;
+            this._musicalNoteLabel.Text = "_musicalNoteLabel";
             // 
-            // _nameBox
+            // _musicalNoteBox
             // 
-            this._nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._nameBox.Location = new System.Drawing.Point(72, 12);
-            this._nameBox.Name = "_nameBox";
-            this._nameBox.Size = new System.Drawing.Size(596, 20);
-            this._nameBox.TabIndex = 3;
-            this._nameBox.Text = "_nameBox";
-            this._nameBox.TextChanged += new System.EventHandler(this._nameBox_TextChanged);
+            this._musicalNoteBox.Enabled = false;
+            this._musicalNoteBox.Location = new System.Drawing.Point(97, 64);
+            this._musicalNoteBox.Name = "_musicalNoteBox";
+            this._musicalNoteBox.Size = new System.Drawing.Size(117, 20);
+            this._musicalNoteBox.TabIndex = 30;
+            this._musicalNoteBox.Text = "_musicalNoteBox";
+            // 
+            // _toleranceLabel
+            // 
+            this._toleranceLabel.AutoSize = true;
+            this._toleranceLabel.Location = new System.Drawing.Point(237, 67);
+            this._toleranceLabel.Name = "_toleranceLabel";
+            this._toleranceLabel.Size = new System.Drawing.Size(83, 13);
+            this._toleranceLabel.TabIndex = 31;
+            this._toleranceLabel.Text = "_toleranceLabel";
+            // 
+            // _toleranceUpDown
+            // 
+            this._toleranceUpDown.Location = new System.Drawing.Point(370, 65);
+            this._toleranceUpDown.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this._toleranceUpDown.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            -2147483648});
+            this._toleranceUpDown.Name = "_toleranceUpDown";
+            this._toleranceUpDown.Size = new System.Drawing.Size(53, 20);
+            this._toleranceUpDown.TabIndex = 30;
+            this._toleranceUpDown.ValueChanged += new System.EventHandler(this._toleranceUpDown_ValueChanged);
             // 
             // EventsEditForm
             // 
@@ -335,6 +389,7 @@
             this._spectrumPanel.PerformLayout();
             this._eventPanel.ResumeLayout(false);
             this._eventPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._toleranceUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +420,9 @@
         private System.Windows.Forms.TextBox _eventBox;
         private System.Windows.Forms.Label _nameLabel;
         private System.Windows.Forms.TextBox _nameBox;
+        private System.Windows.Forms.Label _musicalNoteLabel;
+        private System.Windows.Forms.TextBox _musicalNoteBox;
+        private System.Windows.Forms.Label _toleranceLabel;
+        private System.Windows.Forms.NumericUpDown _toleranceUpDown;
     }
 }

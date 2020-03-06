@@ -130,10 +130,11 @@ namespace SendVoiceCommands
         /// </summary>
         /// <param name="frequency">This frequency will be used.</param>
         /// <returns></returns>
-        public int ConvertToneToPianoKeyNumber(float frequency)
+        public short ConvertToneToPianoKeyNumber(float frequency)
         {
             // calculate piano keyboard tone number
-            return (int)(Math.Log(frequency / 440, 2) * 12) + 49;
+            int value = (int)(Math.Log(frequency / 440, 2) * 12) + 49;
+            return (short)value;
         }
 
         /// <summary>

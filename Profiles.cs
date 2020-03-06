@@ -97,6 +97,8 @@ namespace SendVoiceCommands {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.exampleURI.com/Schema1", IsNullable=false)]
     public partial class MusicalNoteEvent {
         
+        private short halfToneToleranceField;
+        
         private bool keyAltField;
         
         private bool keyControlField;
@@ -108,6 +110,17 @@ namespace SendVoiceCommands {
         private string nameField;
         
         private short pianoKeyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public short HalfToneTolerance {
+            get {
+                return this.halfToneToleranceField;
+            }
+            set {
+                this.halfToneToleranceField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -175,7 +188,7 @@ namespace SendVoiceCommands {
             }
         }
 
-        //??PATCHED martin@familie-kaul.de 
+        //??PATCHED insert function to output the musical-note in readable format
         override public string ToString()
         {
             return Name;

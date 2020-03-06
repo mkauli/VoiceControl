@@ -90,6 +90,8 @@ namespace SendVoiceCommands
         private int _xAxisMaximum = 900;
         private bool _changeLevelBox = false;
         private EventKey _eventKey;
+        private short _pianoKey;
+        private short _halftoneTolerance;
 
         public EventsEditForm(string title, AudioSampleAggregator sampleAggregator, AudioSpectrumUtils spectrumUtils, short detectLevel, MusicalNoteEvent musicalNoteEvent)
         {
@@ -122,6 +124,9 @@ namespace SendVoiceCommands
             _nameBox.Text = "";
             _keyLabel.Text = "Key:";
             _eventBox.Text = "";
+            _musicalNoteLabel.Text = "Musical-Note:";
+            _musicalNoteBox.Text = "";
+            _toleranceLabel.Text = "Tolerance [+/- Half-Tone]:";
 
             _detectLevel = detectLevel;
             _detectLevelBar.Minimum = 0;
@@ -148,6 +153,11 @@ namespace SendVoiceCommands
                 _eventKey.Shift = musicalNoteEvent.KeyShift;
                 _eventKey.Value = musicalNoteEvent.KeyValue;
                 _eventBox.Text = _eventKey.ToString();
+                _pianoKey = musicalNoteEvent.PianoKey;
+                _musicalNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(_pianoKey);
+                _halftoneTolerance = musicalNoteEvent.HalfToneTolerance;
+                _toleranceUpDown.Value = _halftoneTolerance;
+
             }
         }
 
@@ -164,6 +174,16 @@ namespace SendVoiceCommands
         public EventKey GetEventKey()
         {
             return _eventKey;
+        }
+
+        public short GetPianoKey()
+        {
+            return _pianoKey;
+        }
+
+        public short GetHalfToneTolerance()
+        {
+            return _halftoneTolerance;
         }
 
         private void EventsEditForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -244,24 +264,25 @@ namespace SendVoiceCommands
 
         private void ProcessDetectedFrequency(float frequency)
         {
-            int pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
+            _pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
             _detectedFrequencyBox.Text = frequency.ToString() + " Hz";
-            _detectedNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(pianoKey);
+            _detectedNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(_pianoKey);
+            _musicalNoteBox.Text = _detectedNoteBox.Text;
             // calculate difference to music note frequency
-            float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey);
+            float musicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(_pianoKey);
             float difference = musicNoteFrequency - frequency;
             _differenceBox.Text = difference.ToString() + " Hz";
             if (difference < 0f)
             {
                 // calculate % distance to next lower note
-                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey - 1);
+                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(_pianoKey - 1);
                 float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
                 _differenceSlider.Pan = distance;
             }
             else
             {
                 // calculate % distance to next upper note
-                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(pianoKey + 1);
+                float nextMusicNoteFrequency = _spectrumUtils.ConvertPianoKeyNumberToFrequency(_pianoKey + 1);
                 float distance = difference / (nextMusicNoteFrequency - musicNoteFrequency);
                 _differenceSlider.Pan = distance;
             }
@@ -307,6 +328,11 @@ namespace SendVoiceCommands
             {
                 _okButton.Enabled = true;
             }
+        }
+
+        private void _toleranceUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            _halftoneTolerance = (short)_toleranceUpDown.Value;
         }
     }
 }
