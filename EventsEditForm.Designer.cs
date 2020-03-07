@@ -210,11 +210,6 @@
             0,
             0,
             0});
-            this._toleranceUpDown.Minimum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            -2147483648});
             this._toleranceUpDown.Name = "_toleranceUpDown";
             this._toleranceUpDown.ValueChanged += new System.EventHandler(this._toleranceUpDown_ValueChanged);
             // 

@@ -74,6 +74,26 @@ namespace SendVoiceCommands
         /// </summary>
         private bool _running = false;
 
+        /// <summary>
+        /// The handler that will be called in case of FFT finished calculation of a sample.
+        /// </summary>
+        private EventHandler<AudioSampleAggregator.FftEventArgs> _fftEventHandler;
+
+        /// <summary>
+        /// Helper utility for musical note functions.
+        /// </summary>
+        private MusicNoteUtils _musicNoteUtils;
+
+        /// <summary>
+        /// The minimum frequency that will be detected.
+        /// </summary>
+        private int _minimumFrequencyIndex;
+
+        /// <summary>
+        /// The maximum frequency that will be detected.
+        /// </summary>
+        private int _maximumFrequencyIndex;
+
         public MainForm()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_language);
@@ -108,6 +128,12 @@ namespace SendVoiceCommands
             _applicationProperties.EventList = new MusicalNoteEvent[1];
             _applicationProperties.Settings = new CommonSettings();
 
+            _fftEventHandler = new EventHandler<AudioSampleAggregator.FftEventArgs>(FftCalculated);
+            _sampleAggregator.addEventHandler(_fftEventHandler);
+            _minimumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(55);   // tone A1 
+            _maximumFrequencyIndex = _spectrumUtils.ConvertFrequencyToIndexUsingMinimum(880);  // tone a2
+            _musicNoteUtils = new MusicNoteUtils();
+
             // load application settings
             string storedProfileFilename = SendVoiceCommands.Properties.Settings.Default.LastProfileFilename;
             if (System.IO.File.Exists(storedProfileFilename))
@@ -127,7 +153,7 @@ namespace SendVoiceCommands
         private void refreshProcessList()
         {
             _processesBox.Items.Clear();
-            EnableGame( false );
+            EnableGame(false);
             _processesBox.Text = "";
 
             System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
@@ -151,11 +177,11 @@ namespace SendVoiceCommands
         {
             if (_processesBox.SelectedItem != null)
             {
-                EnableGame( true );
+                EnableGame(true);
             }
             else
             {
-                EnableGame( false );
+                EnableGame(false);
             }
         }
 
@@ -240,7 +266,7 @@ namespace SendVoiceCommands
         private void _spectrumButton_Click(object sender, EventArgs e)
         {
             AudioSpectrumAnalyser dialog = new AudioSpectrumAnalyser(waveIn, _sampleAggregator, _spectrumUtils, _detectLevel);
-            if(dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 _detectLevel = dialog.GetDetectLevel();
                 _applicationProperties.Settings.FrequenceDetectLevel = _detectLevel;
@@ -278,7 +304,7 @@ namespace SendVoiceCommands
 
         private void _loadProfileButton_Click(object sender, EventArgs e)
         {
-            if(_loadProfileDialog.ShowDialog() == DialogResult.OK)
+            if (_loadProfileDialog.ShowDialog() == DialogResult.OK)
             {
                 _loadProfileBox.Text = _loadProfileDialog.FileName;
             }
@@ -286,7 +312,7 @@ namespace SendVoiceCommands
 
         private void _loadProfileBox_TextChanged(object sender, EventArgs e)
         {
-            if(System.IO.File.Exists(_loadProfileBox.Text))
+            if (System.IO.File.Exists(_loadProfileBox.Text))
             {
                 EnableProfileEdit(true);
             }
@@ -306,7 +332,7 @@ namespace SendVoiceCommands
             _eventsListBox.Enabled = status;
             _eventsEditButton.Enabled = false;
 
-            if(status)
+            if (status)
             {
                 // store setting
                 if (_profileFilename != _loadProfileBox.Text)
@@ -325,7 +351,7 @@ namespace SendVoiceCommands
 
         private void _createNewProfileButton_Click(object sender, EventArgs e)
         {
-            if(_saveProfileDialog.ShowDialog() == DialogResult.OK)
+            if (_saveProfileDialog.ShowDialog() == DialogResult.OK)
             {
                 _loadProfileBox.Text = _saveProfileDialog.FileName;
                 ResetSettings();
@@ -359,10 +385,10 @@ namespace SendVoiceCommands
         private void UpdateGui()
         {
             refreshProcessList();
-            foreach( object itemObject in _processesBox.Items )
+            foreach (object itemObject in _processesBox.Items)
             {
                 ProcessItem item = itemObject as ProcessItem;
-                if(item.applicationName == _applicationProperties.Settings.ApplicationName)
+                if (item.applicationName == _applicationProperties.Settings.ApplicationName)
                 {
                     _processesBox.SelectedItem = itemObject;
                     break;
@@ -386,7 +412,7 @@ namespace SendVoiceCommands
 
         private void _eventsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(_eventsListBox.SelectedItem != null)
+            if (_eventsListBox.SelectedItem != null)
             {
                 _eventsEditButton.Enabled = true;
             }
@@ -399,7 +425,7 @@ namespace SendVoiceCommands
         private void _eventsCreateButton_Click(object sender, EventArgs e)
         {
             EventsEditForm dialog = new EventsEditForm(null, _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger, _processItem);
-            if(dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 HandleEventDialogData(dialog, null);
             }
@@ -463,7 +489,7 @@ namespace SendVoiceCommands
             _eventsListBox.Text = "";
             _eventsListBox.SelectedItem = null;
 
-            foreach(MusicalNoteEvent musicalNote in _applicationProperties.EventList)
+            foreach (MusicalNoteEvent musicalNote in _applicationProperties.EventList)
             {
                 _eventsListBox.Items.Add(musicalNote);
             }
@@ -549,24 +575,85 @@ namespace SendVoiceCommands
             {
                 sb = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
             }
-            g.DrawEllipse(p, 0, 0, _buttonPanel.Size.Width-1, _buttonPanel.Size.Height-1);
-            g.FillEllipse(sb, 0, 0, _buttonPanel.Size.Width-1, _buttonPanel.Size.Height-1);
+            g.DrawEllipse(p, 0, 0, _buttonPanel.Size.Width - 1, _buttonPanel.Size.Height - 1);
+            g.FillEllipse(sb, 0, 0, _buttonPanel.Size.Width - 1, _buttonPanel.Size.Height - 1);
         }
 
         private void _startButton_Click(object sender, EventArgs e)
         {
-            _stopButton.Visible = true;
-            _startButton.Visible = false;
-            _running = true;
-            _runPanel.Refresh();
+            StartDetection();
         }
 
         private void _stopButton_Click(object sender, EventArgs e)
         {
+            StopDetection();
+        }
+
+        private void StartDetection()
+        {
+            _stopButton.Visible = true;
+            _startButton.Visible = false;
+            _settingPanel.Enabled = false;
+            _running = true;
+            _runPanel.Refresh();
+            _sampleAggregator.PerformFFT = true;
+        }
+
+        private void StopDetection()
+        {
             _stopButton.Visible = false;
             _startButton.Visible = true;
+            _settingPanel.Enabled = true;
             _running = false;
             _runPanel.Refresh();
+            _sampleAggregator.PerformFFT = false;
+        }
+
+        void FftCalculated(object sender, AudioSampleAggregator.FftEventArgs e)
+        {
+            float[] frequencyValues = new float[_maximumFrequencyIndex - _minimumFrequencyIndex + 1];
+            // convert the complex value into standard value
+            for (int i = _minimumFrequencyIndex; i < _maximumFrequencyIndex; i++) // use half of the values cause of mirroring in the FFT
+            {
+                NAudio.Dsp.Complex c = e.Result[i];
+                float value = (float)Math.Sqrt(c.X * c.X + c.Y * c.Y);
+                frequencyValues[i - _minimumFrequencyIndex] = value;
+            }
+            // detect maximum frequency
+            int index = _spectrumUtils.DetectIndexOfMaximumFrequency(frequencyValues, _detectLevel);
+            if (index < 0)
+            {
+                // no frequency above level
+                _detectedNoteBox.Text = "-";
+                _detectedEventBox.Text = "-";
+            }
+            else
+            {
+                float frequency = _spectrumUtils.ConvertIndexToFrequency(index + _minimumFrequencyIndex);
+                ProcessDetectedFrequency(frequency);
+            }
+        }
+        private void ProcessDetectedFrequency(float frequency)
+        {
+            short pianoKey = _spectrumUtils.ConvertToneToPianoKeyNumber(frequency);
+            _detectedNoteBox.Text = _musicNoteUtils.GetMusicNoteFromPianoKey(pianoKey);
+
+            // scan through list of events
+            foreach (MusicalNoteEvent musicalNote in _applicationProperties.EventList)
+            {
+                short minimumPianoKey = (short)(musicalNote.PianoKey - musicalNote.HalfToneTolerance);
+                if (minimumPianoKey < 0) minimumPianoKey = 0;
+                short maxmumPianoKey = (short)(musicalNote.PianoKey + musicalNote.HalfToneTolerance);
+                if((pianoKey >= minimumPianoKey) && (pianoKey <= maxmumPianoKey))
+                {
+                    TriggerEvent(musicalNote);
+                }
+            }
+        }
+
+        private void TriggerEvent(MusicalNoteEvent musicalNote)
+        {
+            _detectedEventBox.Text = musicalNote.Name;
         }
     }
 }

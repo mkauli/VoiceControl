@@ -117,93 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 480</value>
-  </data>
   <data name="_closeButton.Text" xml:space="preserve">
     <value>Close</value>
-  </data>
-  <data name="_processesBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>716, 21</value>
-  </data>
-  <data name="_refreshButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 183</value>
-  </data>
-  <data name="_refreshButton.Text" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>797, 23</value>
-  </data>
-  <data name="_spectrumButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>653, 480</value>
   </data>
   <data name="_spectrumButton.Text" xml:space="preserve">
     <value>Spectrum</value>
   </data>
-  <data name="_levelLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
-  </data>
-  <data name="_levelLabel.Text" xml:space="preserve">
-    <value>Sound Level:</value>
-  </data>
-  <data name="_processLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 13</value>
-  </data>
-  <data name="_processLabel.Text" xml:space="preserve">
-    <value>Select Windows Application:</value>
-  </data>
-  <data name="_loadProfileBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>681, 20</value>
-  </data>
-  <data name="_loadProfileBox.Text" xml:space="preserve">
-    <value> </value>
-  </data>
-  <data name="_loadProfileLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
-  </data>
-  <data name="_loadProfileLabel.Text" xml:space="preserve">
-    <value>Stored profile:</value>
-  </data>
-  <data name="_loadProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>699, 63</value>
-  </data>
-  <data name="_createNewProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 62</value>
-  </data>
-  <data name="_createNewProfileButton.Text" xml:space="preserve">
-    <value>Create New</value>
-  </data>
-  <data name="_eventsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>716, 134</value>
-  </data>
-  <data name="_eventsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="_eventsLabel.Text" xml:space="preserve">
-    <value>Events:</value>
-  </data>
-  <data name="_eventsCreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 237</value>
-  </data>
-  <data name="_eventsCreateButton.Text" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="_eventsDeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 348</value>
-  </data>
-  <data name="_eventsDeleteButton.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="_eventsEditButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 266</value>
-  </data>
-  <data name="_eventsEditButton.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>624, 9</value>
+    <value>667, 9</value>
   </data>
   <data name="_languageLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 13</value>
@@ -211,14 +133,38 @@
   <data name="_languageLabel.Text" xml:space="preserve">
     <value>Language:</value>
   </data>
-  <data name="_languageBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>688, 6</value>
-  </data>
   <data name="_languageBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectedEventBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>411, 19</value>
+  </data>
+  <data name="_detectedEventBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectedEventLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 22</value>
+  </data>
+  <data name="_detectedEventLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="_detectedEventLabel.Text" xml:space="preserve">
+    <value>Event:</value>
+  </data>
+  <data name="_detectedNoteBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 19</value>
+  </data>
+  <data name="_detectedNoteBox.Text" xml:space="preserve">
     <value> </value>
   </data>
   <data name="_stopButton.Text" xml:space="preserve">
     <value>Stop</value>
+  </data>
+  <data name="_detectedNoteLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="_detectedNoteLabel.Text" xml:space="preserve">
+    <value>Musical Note:</value>
   </data>
   <data name="_startButton.Text" xml:space="preserve">
     <value>Start</value>
@@ -229,8 +175,47 @@
   <data name="_runLabel.Text" xml:space="preserve">
     <value>Start/Stop</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>821, 515</value>
+  <data name="_eventsEditButton.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="_eventsDeleteButton.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="_eventsCreateButton.Text" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="_eventsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="_eventsLabel.Text" xml:space="preserve">
+    <value>Events:</value>
+  </data>
+  <data name="_createNewProfileButton.Text" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="_loadProfileLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="_loadProfileLabel.Text" xml:space="preserve">
+    <value>Stored profile:</value>
+  </data>
+  <data name="_loadProfileBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_processLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="_processLabel.Text" xml:space="preserve">
+    <value>Select Windows Application:</value>
+  </data>
+  <data name="_levelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
+  </data>
+  <data name="_levelLabel.Text" xml:space="preserve">
+    <value>Sound Level:</value>
+  </data>
+  <data name="_refreshButton.Text" xml:space="preserve">
+    <value>Refresh</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Send Voice Command</value>
