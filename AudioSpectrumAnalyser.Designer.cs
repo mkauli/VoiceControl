@@ -131,8 +131,8 @@
             // 
             // _cancelButton
             // 
-            resources.ApplyResources(this._cancelButton, "_cancelButton");
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this._cancelButton, "_cancelButton");
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.UseVisualStyleBackColor = true;
             // 
