@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>651, 567</value>
+    <value>608, 527</value>
   </data>
   <data name="_okButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -151,7 +151,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>570, 567</value>
+    <value>527, 527</value>
   </data>
   <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -181,7 +181,7 @@
     <value>13, 68</value>
   </data>
   <data name="_spectrumChart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>683, 150</value>
+    <value>640, 110</value>
   </data>
   <data name="_spectrumChart.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -388,7 +388,7 @@
     <value>12, 25</value>
   </data>
   <data name="_infoPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 79</value>
+    <value>671, 79</value>
   </data>
   <data name="_infoPanel.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -436,7 +436,7 @@
     <value>Top, Right</value>
   </data>
   <data name="_detectLevelBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 16</value>
+    <value>531, 16</value>
   </data>
   <data name="_detectLevelBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 20</value>
@@ -466,7 +466,7 @@
     <value>114, 13</value>
   </data>
   <data name="_detectLevelBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 45</value>
+    <value>397, 45</value>
   </data>
   <data name="_detectLevelBar.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -517,7 +517,7 @@
     <value>12, 146</value>
   </data>
   <data name="_spectrumPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>713, 233</value>
+    <value>670, 193</value>
   </data>
   <data name="_spectrumPanel.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -673,7 +673,7 @@
     <value>97, 12</value>
   </data>
   <data name="_nameBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 20</value>
+    <value>556, 20</value>
   </data>
   <data name="_nameBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -720,11 +720,14 @@
   <data name="&gt;&gt;_nameLabel.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="_eventBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="_eventBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 38</value>
   </data>
   <data name="_eventBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>571, 20</value>
+    <value>556, 20</value>
   </data>
   <data name="_eventBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -772,10 +775,10 @@
     <value>7</value>
   </data>
   <data name="_eventPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 419</value>
+    <value>12, 379</value>
   </data>
   <data name="_eventPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 120</value>
+    <value>671, 120</value>
   </data>
   <data name="_eventPanel.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -799,7 +802,7 @@
     <value>True</value>
   </data>
   <data name="_eventLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 403</value>
+    <value>12, 363</value>
   </data>
   <data name="_eventLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 13</value>
@@ -826,7 +829,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="_testEventButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 567</value>
+    <value>12, 527</value>
   </data>
   <data name="_testEventButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -856,7 +859,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>738, 602</value>
+    <value>695, 562</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>711, 601</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>EventsEditForm</value>

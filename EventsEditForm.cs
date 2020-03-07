@@ -49,31 +49,33 @@ namespace SendVoiceCommands
                 {
                     case 0:
                         break;
-                    case 8:
+                    case 8: // backspace
                         s += "[Back]";
                         break;
-                    case 27:
+                    case 13: // enter
+                        s += "[Enter]";
+                        break;
+                    case 27: // esc
                         s += "[Esc]";
                         break;
-                    case 32:
+                    case 32: // space
                         s += "[Space]";
                         break;
-                    case 37:
+                    case 37: // left arrow
                         s += "[Left]";
                         break;
-                    case 38:
+                    case 38: // up arrow
                         s += "[Up]";
                         break;
-                    case 39:
+                    case 39: // right arrow
                         s += "[Right]";
                         break;
-                    case 40:
+                    case 40: // down arrow
                         s += "[Down]";
                         break;
                     default:
                         s += (char)Value;
                         break;
-
                 }
 
                 return s;
@@ -306,6 +308,11 @@ namespace SendVoiceCommands
 
                 default:
                     _eventKey.Value = e.KeyValue;
+                    // remove shifted characters
+                    if((_eventKey.Value >= 'A') && (_eventKey.Value <= 'Z'))
+                    {
+                        _eventKey.Value = 'a' + (_eventKey.Value - 'A');
+                    }
                     break;
             }
             _eventBox.Text = _eventKey.ToString();
