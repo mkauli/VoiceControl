@@ -49,6 +49,12 @@
             this._eventsEditButton = new System.Windows.Forms.Button();
             this._languageLabel = new System.Windows.Forms.Label();
             this._languageBox = new System.Windows.Forms.ComboBox();
+            this._runPanel = new System.Windows.Forms.Panel();
+            this._stopButton = new System.Windows.Forms.Button();
+            this._startButton = new System.Windows.Forms.Button();
+            this._buttonPanel = new System.Windows.Forms.Panel();
+            this._runLabel = new System.Windows.Forms.Label();
+            this._runPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // _closeButton
@@ -180,11 +186,47 @@
             this._languageBox.Name = "_languageBox";
             this._languageBox.SelectedIndexChanged += new System.EventHandler(this._languageBox_SelectedIndexChanged);
             // 
+            // _runPanel
+            // 
+            resources.ApplyResources(this._runPanel, "_runPanel");
+            this._runPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._runPanel.Controls.Add(this._stopButton);
+            this._runPanel.Controls.Add(this._startButton);
+            this._runPanel.Controls.Add(this._buttonPanel);
+            this._runPanel.Name = "_runPanel";
+            // 
+            // _stopButton
+            // 
+            resources.ApplyResources(this._stopButton, "_stopButton");
+            this._stopButton.Name = "_stopButton";
+            this._stopButton.UseVisualStyleBackColor = true;
+            this._stopButton.Click += new System.EventHandler(this._stopButton_Click);
+            // 
+            // _startButton
+            // 
+            resources.ApplyResources(this._startButton, "_startButton");
+            this._startButton.Name = "_startButton";
+            this._startButton.UseVisualStyleBackColor = true;
+            this._startButton.Click += new System.EventHandler(this._startButton_Click);
+            // 
+            // _buttonPanel
+            // 
+            resources.ApplyResources(this._buttonPanel, "_buttonPanel");
+            this._buttonPanel.Name = "_buttonPanel";
+            this._buttonPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._buttonPanel_Paint);
+            // 
+            // _runLabel
+            // 
+            resources.ApplyResources(this._runLabel, "_runLabel");
+            this._runLabel.Name = "_runLabel";
+            // 
             // MainForm
             // 
             this.AcceptButton = this._closeButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this._runLabel);
+            this.Controls.Add(this._runPanel);
             this.Controls.Add(this._languageBox);
             this.Controls.Add(this._languageLabel);
             this.Controls.Add(this._eventsEditButton);
@@ -204,6 +246,7 @@
             this.Controls.Add(this._processesBox);
             this.Controls.Add(this._closeButton);
             this.Name = "MainForm";
+            this._runPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,6 +274,11 @@
         private System.Windows.Forms.Button _eventsEditButton;
         private System.Windows.Forms.Label _languageLabel;
         private System.Windows.Forms.ComboBox _languageBox;
+        private System.Windows.Forms.Panel _runPanel;
+        private System.Windows.Forms.Label _runLabel;
+        private System.Windows.Forms.Panel _buttonPanel;
+        private System.Windows.Forms.Button _startButton;
+        private System.Windows.Forms.Button _stopButton;
     }
 }
 

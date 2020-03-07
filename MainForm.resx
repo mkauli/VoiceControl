@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 525</value>
+    <value>777, 441</value>
   </data>
   <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="_processesBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -154,7 +154,7 @@
     <value>12, 185</value>
   </data>
   <data name="_processesBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 21</value>
+    <value>759, 21</value>
   </data>
   <data name="_processesBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -169,13 +169,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_processesBox.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="_refreshButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="_refreshButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 183</value>
+    <value>777, 183</value>
   </data>
   <data name="_refreshButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -196,7 +196,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_refreshButton.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="progressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -205,7 +205,7 @@
     <value>12, 118</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 23</value>
+    <value>840, 23</value>
   </data>
   <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -220,13 +220,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="_spectrumButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="_spectrumButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>640, 525</value>
+    <value>696, 441</value>
   </data>
   <data name="_spectrumButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -247,7 +247,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_spectrumButton.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="_levelLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_levelLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="_processLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -301,7 +301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_processLabel.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="_loadProfileBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -310,7 +310,7 @@
     <value>12, 65</value>
   </data>
   <data name="_loadProfileBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>668, 20</value>
+    <value>724, 20</value>
   </data>
   <data name="_loadProfileBox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -328,7 +328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_loadProfileBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="_loadProfileLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -355,13 +355,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_loadProfileLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="_loadProfileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="_loadProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>686, 63</value>
+    <value>742, 63</value>
   </data>
   <data name="_loadProfileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 23</value>
@@ -382,7 +382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_loadProfileButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <metadata name="_loadProfileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -394,7 +394,7 @@
     <value>Top, Right</value>
   </data>
   <data name="_createNewProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 62</value>
+    <value>777, 62</value>
   </data>
   <data name="_createNewProfileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -415,7 +415,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_createNewProfileButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <metadata name="_saveProfileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 17</value>
@@ -424,13 +424,13 @@
     <value>XML-Files (*.xml)|*.xml</value>
   </data>
   <data name="_eventsListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="_eventsListBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 237</value>
   </data>
   <data name="_eventsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 160</value>
+    <value>759, 121</value>
   </data>
   <data name="_eventsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -445,7 +445,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_eventsListBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="_eventsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -472,13 +472,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_eventsLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="_eventsCreateButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="_eventsCreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 237</value>
+    <value>777, 237</value>
   </data>
   <data name="_eventsCreateButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -499,13 +499,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_eventsCreateButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="_eventsDeleteButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="_eventsDeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 374</value>
+    <value>777, 336</value>
   </data>
   <data name="_eventsDeleteButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -526,13 +526,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_eventsDeleteButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="_eventsEditButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="_eventsEditButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 266</value>
+    <value>777, 266</value>
   </data>
   <data name="_eventsEditButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -553,7 +553,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_eventsEditButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="_languageLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -562,7 +562,7 @@
     <value>True</value>
   </data>
   <data name="_languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>606, 9</value>
+    <value>662, 9</value>
   </data>
   <data name="_languageLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
@@ -583,7 +583,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_languageLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="_languageBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -595,7 +595,7 @@
     <value>English</value>
   </data>
   <data name="_languageBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 6</value>
+    <value>731, 6</value>
   </data>
   <data name="_languageBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -616,6 +616,129 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_languageBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_runPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_stopButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 17</value>
+  </data>
+  <data name="_stopButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="_stopButton.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="_stopButton.Text" xml:space="preserve">
+    <value>_stopButton</value>
+  </data>
+  <data name="&gt;&gt;_stopButton.Name" xml:space="preserve">
+    <value>_stopButton</value>
+  </data>
+  <data name="&gt;&gt;_stopButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_stopButton.Parent" xml:space="preserve">
+    <value>_runPanel</value>
+  </data>
+  <data name="&gt;&gt;_stopButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_startButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 17</value>
+  </data>
+  <data name="_startButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="_startButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="_startButton.Text" xml:space="preserve">
+    <value>_startButton</value>
+  </data>
+  <data name="&gt;&gt;_startButton.Name" xml:space="preserve">
+    <value>_startButton</value>
+  </data>
+  <data name="&gt;&gt;_startButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_startButton.Parent" xml:space="preserve">
+    <value>_runPanel</value>
+  </data>
+  <data name="&gt;&gt;_startButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_buttonPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 8</value>
+  </data>
+  <data name="_buttonPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 40</value>
+  </data>
+  <data name="_buttonPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;_buttonPanel.Name" xml:space="preserve">
+    <value>_buttonPanel</value>
+  </data>
+  <data name="&gt;&gt;_buttonPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buttonPanel.Parent" xml:space="preserve">
+    <value>_runPanel</value>
+  </data>
+  <data name="&gt;&gt;_buttonPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_runPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 397</value>
+  </data>
+  <data name="_runPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 58</value>
+  </data>
+  <data name="_runPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Name" xml:space="preserve">
+    <value>_runPanel</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_runLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_runLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_runLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 381</value>
+  </data>
+  <data name="_runLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="_runLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="_runLabel.Text" xml:space="preserve">
+    <value>_runLabel</value>
+  </data>
+  <data name="&gt;&gt;_runLabel.Name" xml:space="preserve">
+    <value>_runLabel</value>
+  </data>
+  <data name="&gt;&gt;_runLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_runLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_runLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -625,10 +748,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>808, 560</value>
+    <value>864, 476</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>497, 411</value>
+    <value>497, 475</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>MainForm</value>

@@ -64,14 +64,24 @@ namespace SendVoiceCommands
         /// </summary>
         private ProcessItem _processItem = null;
 
+        /// <summary>
+        /// Holds the current used language.
+        /// </summary>
         private string _language = SendVoiceCommands.Properties.Settings.Default.Language;
+
+        /// <summary>
+        /// Holds the running status.
+        /// </summary>
+        private bool _running = false;
 
         public MainForm()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_language);
             InitializeComponent();
 
-            switch(_language)
+            _stopButton.Visible = false;
+
+            switch (_language)
             {
                 case "de-DE":
                     _languageBox.SelectedIndex = 0;
@@ -524,6 +534,39 @@ namespace SendVoiceCommands
                     HandleEventDialogData(dialog, musicalNoteEvent);
                 }
             }
+        }
+
+        private void _buttonPanel_Paint(object sender, PaintEventArgs e)
+        {
+            System.Drawing.Graphics g = _buttonPanel.CreateGraphics();
+            System.Drawing.Pen p = new System.Drawing.Pen(System.Drawing.Color.Black);
+            System.Drawing.SolidBrush sb = null;
+            if (_running)
+            {
+                sb = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+            }
+            else
+            {
+                sb = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
+            }
+            g.DrawEllipse(p, 0, 0, _buttonPanel.Size.Width-1, _buttonPanel.Size.Height-1);
+            g.FillEllipse(sb, 0, 0, _buttonPanel.Size.Width-1, _buttonPanel.Size.Height-1);
+        }
+
+        private void _startButton_Click(object sender, EventArgs e)
+        {
+            _stopButton.Visible = true;
+            _startButton.Visible = false;
+            _running = true;
+            _runPanel.Refresh();
+        }
+
+        private void _stopButton_Click(object sender, EventArgs e)
+        {
+            _stopButton.Visible = false;
+            _startButton.Visible = true;
+            _running = false;
+            _runPanel.Refresh();
         }
     }
 }

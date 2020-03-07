@@ -178,6 +178,18 @@
   <data name="_languageBox.Text" xml:space="preserve">
     <value> </value>
   </data>
+  <data name="_stopButton.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="_startButton.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="_runLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="_runLabel.Text" xml:space="preserve">
+    <value>Start/Stop</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Send Voice Command</value>
   </data>
