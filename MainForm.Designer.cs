@@ -137,6 +137,7 @@
             this._eventsListBox.FormattingEnabled = true;
             this._eventsListBox.Name = "_eventsListBox";
             this._eventsListBox.SelectedIndexChanged += new System.EventHandler(this._eventsListBox_SelectedIndexChanged);
+            this._eventsListBox.DoubleClick += new System.EventHandler(this._eventsListBox_DoubleClick);
             // 
             // _eventsLabel
             // 

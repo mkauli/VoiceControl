@@ -512,5 +512,18 @@ namespace SendVoiceCommands
                 applyResources(resources, ctl.Controls);
             }
         }
+
+        private void _eventsListBox_DoubleClick(object sender, EventArgs e)
+        {
+            if (_eventsListBox.SelectedItem != null)
+            {
+                MusicalNoteEvent musicalNoteEvent = _eventsListBox.SelectedItem as MusicalNoteEvent;
+                EventsEditForm dialog = new EventsEditForm(musicalNoteEvent.Name, _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger, _processItem);
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    HandleEventDialogData(dialog, musicalNoteEvent);
+                }
+            }
+        }
     }
 }
