@@ -117,4 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_detectedFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
+  </data>
+  <data name="_detectedFrequencyLabel.Text" xml:space="preserve">
+    <value>detected Frequence:</value>
+  </data>
+  <data name="_detectedFrequencyBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectLevelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="_detectLevelLabel.Text" xml:space="preserve">
+    <value>Detect-Level:</value>
+  </data>
+  <data name="_detectLevelBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectedNoteLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="_detectedNoteLabel.Text" xml:space="preserve">
+    <value>detected Note:</value>
+  </data>
+  <data name="_detectedNoteBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_differenceBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_differenceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="_differenceLabel.Text" xml:space="preserve">
+    <value>Deviation:</value>
+  </data>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>Abort</value>
+  </data>
 </root>

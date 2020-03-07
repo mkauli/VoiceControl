@@ -117,4 +117,361 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;_detectedFrequencyBox.Name" xml:space="preserve">
+    <value>_detectedFrequencyBox</value>
+  </data>
+  <data name="&gt;&gt;_okButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_detectLevelBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>964, 12</value>
+  </data>
+  <data name="_detectedFrequencyBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_detectedFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="_detectLevelLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;_spectrumChart.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyLabel.Name" xml:space="preserve">
+    <value>_detectedFrequencyLabel</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_differenceSlider.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_detectLevelLabel.Text" xml:space="preserve">
+    <value>_detectLevelLabel</value>
+  </data>
+  <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="_differenceBox.Text" xml:space="preserve">
+    <value>_differenceBox</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AudioSpectrumAnalyser</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBar.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_detectLevelLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_detectLevelBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 20</value>
+  </data>
+  <data name="_differenceLabel.Text" xml:space="preserve">
+    <value>_differenceLabel</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_detectedNoteLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1011, 622</value>
+  </data>
+  <data name="_differenceSlider.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_differenceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 98</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;_spectrumChart.Name" xml:space="preserve">
+    <value>_spectrumChart</value>
+  </data>
+  <data name="_spectrumChart.Text" xml:space="preserve">
+    <value>_spectrumChart</value>
+  </data>
+  <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>930, 622</value>
+  </data>
+  <data name="_detectLevelBox.Text" xml:space="preserve">
+    <value>_detectLevelBox</value>
+  </data>
+  <data name="&gt;&gt;_differenceLabel.Name" xml:space="preserve">
+    <value>_differenceLabel</value>
+  </data>
+  <data name="_detectLevelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_differenceLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_spectrumChart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1074, 466</value>
+  </data>
+  <data name="_spectrumChart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="_detectedNoteBox.Text" xml:space="preserve">
+    <value>_detectedNoteBox</value>
+  </data>
+  <data name="_okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_detectedFrequencyBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_differenceBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_differenceSlider.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 95</value>
+  </data>
+  <data name="&gt;&gt;_spectrumChart.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;_differenceBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_detectedNoteLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 13</value>
+  </data>
+  <data name="&gt;&gt;_detectedFrequencyLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_detectLevelBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>841, 45</value>
+  </data>
+  <data name="&gt;&gt;_cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_differenceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="_spectrumChart.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="_detectLevelBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="_detectLevelBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;_cancelButton.Name" xml:space="preserve">
+    <value>_cancelButton</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_detectedFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 66</value>
+  </data>
+  <data name="_detectLevelBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelLabel.Name" xml:space="preserve">
+    <value>_detectLevelLabel</value>
+  </data>
+  <data name="_detectedNoteBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="_detectedFrequencyBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_detectedNoteLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="_detectedFrequencyBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 63</value>
+  </data>
+  <data name="_detectedFrequencyBox.Text" xml:space="preserve">
+    <value>_detectedFrequencyBox</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBar.Name" xml:space="preserve">
+    <value>_detectLevelBar</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_differenceBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>570, 95</value>
+  </data>
+  <data name="_spectrumChart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 139</value>
+  </data>
+  <data name="_detectedFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteLabel.Name" xml:space="preserve">
+    <value>_detectedNoteLabel</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_okButton.Text" xml:space="preserve">
+    <value>_okButton</value>
+  </data>
+  <data name="_differenceLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_differenceBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBox.Name" xml:space="preserve">
+    <value>_detectLevelBox</value>
+  </data>
+  <data name="&gt;&gt;_differenceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_okButton.Name" xml:space="preserve">
+    <value>_okButton</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_detectedFrequencyBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;_cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_detectLevelLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="&gt;&gt;_okButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>_cancelButton</value>
+  </data>
+  <data name="&gt;&gt;_detectLevelBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_differenceSlider.Name" xml:space="preserve">
+    <value>_differenceSlider</value>
+  </data>
+  <data name="_detectedNoteLabel.Text" xml:space="preserve">
+    <value>_detectedNoteLabel</value>
+  </data>
+  <data name="_detectedNoteLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 98</value>
+  </data>
+  <data name="_detectedNoteBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="_okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="_detectedNoteBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 95</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteBox.Name" xml:space="preserve">
+    <value>_detectedNoteBox</value>
+  </data>
+  <data name="&gt;&gt;_spectrumChart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_detectedFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 13</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SpectrumAnalyser</value>
+  </data>
+  <data name="_detectLevelBar.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_differenceLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;_okButton.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_detectLevelBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 12</value>
+  </data>
+  <data name="&gt;&gt;_cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1098, 657</value>
+  </data>
+  <data name="&gt;&gt;_differenceBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_differenceSlider.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_differenceSlider.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 20</value>
+  </data>
+  <data name="&gt;&gt;_differenceSlider.Type" xml:space="preserve">
+    <value>NAudio.Gui.PanSlider, NAudio, Version=1.10.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_differenceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="_detectedFrequencyLabel.Text" xml:space="preserve">
+    <value>_detectedFrequencyLabel</value>
+  </data>
+  <data name="&gt;&gt;_detectedNoteLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_differenceBox.Name" xml:space="preserve">
+    <value>_differenceBox</value>
+  </data>
+  <data name="_differenceBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

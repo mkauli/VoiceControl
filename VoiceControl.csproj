@@ -77,12 +77,48 @@
     <Compile Include="AudioSpectrumAnalyser.Designer.cs">
       <DependentUpon>AudioSpectrumAnalyser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="AudioSpectrumAnalyser.de.resx">
+      <DependentUpon>AudioSpectrumAnalyser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioSpectrumAnalyser.en.resx">
+      <DependentUpon>AudioSpectrumAnalyser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsEditForm.de.resx">
+      <DependentUpon>EventsEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsEditForm.en.resx">
+      <DependentUpon>EventsEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventsEditForm.resx">
       <DependentUpon>EventsEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.de.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.en.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +128,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="AudioSpectrumAnalyser.resx">
       <DependentUpon>AudioSpectrumAnalyser.cs</DependentUpon>

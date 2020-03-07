@@ -117,4 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="_refreshButton.Text" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="_spectrumButton.Text" xml:space="preserve">
+    <value>Spektrum</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_levelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="_levelLabel.Text" xml:space="preserve">
+    <value>Lautstärke:</value>
+  </data>
+  <data name="_processLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 13</value>
+  </data>
+  <data name="_processLabel.Text" xml:space="preserve">
+    <value>Windows Applikation:</value>
+  </data>
+  <data name="_loadProfileBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_loadProfileLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="_loadProfileLabel.Text" xml:space="preserve">
+    <value>gespeicheres Profil:</value>
+  </data>
+  <data name="_createNewProfileButton.Text" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="_eventsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="_eventsLabel.Text" xml:space="preserve">
+    <value>Ereignisse:</value>
+  </data>
+  <data name="_eventsCreateButton.Text" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="_eventsDeleteButton.Text" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="_eventsEditButton.Text" xml:space="preserve">
+    <value>Ändern</value>
+  </data>
+  <data name="_languageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 9</value>
+  </data>
+  <data name="_languageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 13</value>
+  </data>
+  <data name="_languageLabel.Text" xml:space="preserve">
+    <value>Sprache:</value>
+  </data>
+  <data name="_languageBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Send Voice Command</value>
+  </data>
 </root>

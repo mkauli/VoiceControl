@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsEditForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._spectrumChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -50,15 +51,15 @@
             this._spectrumPanel = new System.Windows.Forms.Panel();
             this._spectrumLabel = new System.Windows.Forms.Label();
             this._eventPanel = new System.Windows.Forms.Panel();
+            this._toleranceUpDown = new System.Windows.Forms.NumericUpDown();
+            this._toleranceLabel = new System.Windows.Forms.Label();
+            this._musicalNoteBox = new System.Windows.Forms.TextBox();
+            this._musicalNoteLabel = new System.Windows.Forms.Label();
             this._nameBox = new System.Windows.Forms.TextBox();
             this._nameLabel = new System.Windows.Forms.Label();
             this._eventBox = new System.Windows.Forms.TextBox();
             this._keyLabel = new System.Windows.Forms.Label();
             this._eventLabel = new System.Windows.Forms.Label();
-            this._musicalNoteLabel = new System.Windows.Forms.Label();
-            this._musicalNoteBox = new System.Windows.Forms.TextBox();
-            this._toleranceLabel = new System.Windows.Forms.Label();
-            this._toleranceUpDown = new System.Windows.Forms.NumericUpDown();
             this._testEventButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).BeginInit();
             this._infoPanel.SuspendLayout();
@@ -70,115 +71,75 @@
             // 
             // _okButton
             // 
-            this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this._okButton, "_okButton");
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(651, 567);
             this._okButton.Name = "_okButton";
-            this._okButton.Size = new System.Drawing.Size(75, 23);
-            this._okButton.TabIndex = 0;
-            this._okButton.Text = "_okButton";
             this._okButton.UseVisualStyleBackColor = true;
             // 
             // _cancelButton
             // 
-            this._cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this._cancelButton, "_cancelButton");
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(570, 567);
             this._cancelButton.Name = "_cancelButton";
-            this._cancelButton.Size = new System.Drawing.Size(75, 23);
-            this._cancelButton.TabIndex = 1;
-            this._cancelButton.Text = "_cancelButton";
             this._cancelButton.UseVisualStyleBackColor = true;
             // 
             // _spectrumChart
             // 
-            this._spectrumChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this._spectrumChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this._spectrumChart.Legends.Add(legend2);
-            this._spectrumChart.Location = new System.Drawing.Point(13, 68);
+            resources.ApplyResources(this._spectrumChart, "_spectrumChart");
+            chartArea1.Name = "ChartArea1";
+            this._spectrumChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this._spectrumChart.Legends.Add(legend1);
             this._spectrumChart.Name = "_spectrumChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "spectrumSeries";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "detectLevelSeries";
-            this._spectrumChart.Series.Add(series3);
-            this._spectrumChart.Series.Add(series4);
-            this._spectrumChart.Size = new System.Drawing.Size(683, 150);
-            this._spectrumChart.TabIndex = 8;
-            this._spectrumChart.Text = "_spectrumChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "spectrumSeries";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "detectLevelSeries";
+            this._spectrumChart.Series.Add(series1);
+            this._spectrumChart.Series.Add(series2);
             // 
             // _detectedFrequencyBox
             // 
-            this._detectedFrequencyBox.Enabled = false;
-            this._detectedFrequencyBox.Location = new System.Drawing.Point(124, 12);
+            resources.ApplyResources(this._detectedFrequencyBox, "_detectedFrequencyBox");
             this._detectedFrequencyBox.Name = "_detectedFrequencyBox";
-            this._detectedFrequencyBox.Size = new System.Drawing.Size(100, 20);
-            this._detectedFrequencyBox.TabIndex = 11;
-            this._detectedFrequencyBox.Text = "_detectedFrequencyBox";
-            this._detectedFrequencyBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // _detectedFrequencyLabel
             // 
-            this._detectedFrequencyLabel.AutoSize = true;
-            this._detectedFrequencyLabel.Location = new System.Drawing.Point(10, 15);
+            resources.ApplyResources(this._detectedFrequencyLabel, "_detectedFrequencyLabel");
             this._detectedFrequencyLabel.Name = "_detectedFrequencyLabel";
-            this._detectedFrequencyLabel.Size = new System.Drawing.Size(131, 13);
-            this._detectedFrequencyLabel.TabIndex = 10;
-            this._detectedFrequencyLabel.Text = "_detectedFrequencyLabel";
             // 
             // _detectedNoteBox
             // 
-            this._detectedNoteBox.Location = new System.Drawing.Point(124, 38);
+            resources.ApplyResources(this._detectedNoteBox, "_detectedNoteBox");
             this._detectedNoteBox.Name = "_detectedNoteBox";
-            this._detectedNoteBox.Size = new System.Drawing.Size(100, 20);
-            this._detectedNoteBox.TabIndex = 16;
-            this._detectedNoteBox.Text = "_detectedNoteBox";
             // 
             // _detectedNoteLabel
             // 
-            this._detectedNoteLabel.AutoSize = true;
-            this._detectedNoteLabel.Location = new System.Drawing.Point(10, 41);
+            resources.ApplyResources(this._detectedNoteLabel, "_detectedNoteLabel");
             this._detectedNoteLabel.Name = "_detectedNoteLabel";
-            this._detectedNoteLabel.Size = new System.Drawing.Size(104, 13);
-            this._detectedNoteLabel.TabIndex = 15;
-            this._detectedNoteLabel.Text = "_detectedNoteLabel";
             // 
             // _differenceBox
             // 
-            this._differenceBox.Location = new System.Drawing.Point(558, 38);
+            resources.ApplyResources(this._differenceBox, "_differenceBox");
             this._differenceBox.Name = "_differenceBox";
-            this._differenceBox.Size = new System.Drawing.Size(100, 20);
-            this._differenceBox.TabIndex = 19;
-            this._differenceBox.Text = "_differenceBox";
             // 
             // _differenceSlider
             // 
-            this._differenceSlider.Location = new System.Drawing.Point(297, 38);
+            resources.ApplyResources(this._differenceSlider, "_differenceSlider");
             this._differenceSlider.Name = "_differenceSlider";
             this._differenceSlider.Pan = 0.5F;
-            this._differenceSlider.Size = new System.Drawing.Size(255, 20);
-            this._differenceSlider.TabIndex = 18;
             // 
             // _differenceLabel
             // 
-            this._differenceLabel.AutoSize = true;
-            this._differenceLabel.Location = new System.Drawing.Point(237, 41);
+            resources.ApplyResources(this._differenceLabel, "_differenceLabel");
             this._differenceLabel.Name = "_differenceLabel";
-            this._differenceLabel.Size = new System.Drawing.Size(86, 13);
-            this._differenceLabel.TabIndex = 20;
-            this._differenceLabel.Text = "_differenceLabel";
             // 
             // _infoPanel
             // 
-            this._infoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this._infoPanel, "_infoPanel");
             this._infoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._infoPanel.Controls.Add(this._detectedNoteBox);
             this._infoPanel.Controls.Add(this._differenceBox);
@@ -187,78 +148,49 @@
             this._infoPanel.Controls.Add(this._detectedNoteLabel);
             this._infoPanel.Controls.Add(this._differenceLabel);
             this._infoPanel.Controls.Add(this._detectedFrequencyLabel);
-            this._infoPanel.Location = new System.Drawing.Point(12, 25);
             this._infoPanel.Name = "_infoPanel";
-            this._infoPanel.Size = new System.Drawing.Size(714, 79);
-            this._infoPanel.TabIndex = 21;
             // 
             // _infoLabel
             // 
-            this._infoLabel.AutoSize = true;
-            this._infoLabel.Location = new System.Drawing.Point(9, 9);
+            resources.ApplyResources(this._infoLabel, "_infoLabel");
             this._infoLabel.Name = "_infoLabel";
-            this._infoLabel.Size = new System.Drawing.Size(56, 13);
-            this._infoLabel.TabIndex = 22;
-            this._infoLabel.Text = "_infoLabel";
             // 
             // _detectLevelBox
             // 
-            this._detectLevelBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._detectLevelBox.Location = new System.Drawing.Point(574, 16);
+            resources.ApplyResources(this._detectLevelBox, "_detectLevelBox");
             this._detectLevelBox.Name = "_detectLevelBox";
-            this._detectLevelBox.Size = new System.Drawing.Size(122, 20);
-            this._detectLevelBox.TabIndex = 25;
-            this._detectLevelBox.Text = "_detectLevelBox";
             this._detectLevelBox.TextChanged += new System.EventHandler(this._detectLevelBox_TextChanged);
             this._detectLevelBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._detectLevelBox_KeyPress);
             // 
             // _detectLevelBar
             // 
-            this._detectLevelBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._detectLevelBar.Location = new System.Drawing.Point(114, 13);
+            resources.ApplyResources(this._detectLevelBar, "_detectLevelBar");
             this._detectLevelBar.Name = "_detectLevelBar";
-            this._detectLevelBar.Size = new System.Drawing.Size(440, 45);
-            this._detectLevelBar.TabIndex = 24;
             this._detectLevelBar.ValueChanged += new System.EventHandler(this._detectLevelBar_ValueChanged);
             // 
             // _detectLevelLabel
             // 
-            this._detectLevelLabel.AutoSize = true;
-            this._detectLevelLabel.Location = new System.Drawing.Point(10, 16);
+            resources.ApplyResources(this._detectLevelLabel, "_detectLevelLabel");
             this._detectLevelLabel.Name = "_detectLevelLabel";
-            this._detectLevelLabel.Size = new System.Drawing.Size(95, 13);
-            this._detectLevelLabel.TabIndex = 23;
-            this._detectLevelLabel.Text = "_detectLevelLabel";
             // 
             // _spectrumPanel
             // 
-            this._spectrumPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this._spectrumPanel, "_spectrumPanel");
             this._spectrumPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._spectrumPanel.Controls.Add(this._detectLevelBar);
             this._spectrumPanel.Controls.Add(this._detectLevelLabel);
             this._spectrumPanel.Controls.Add(this._detectLevelBox);
             this._spectrumPanel.Controls.Add(this._spectrumChart);
-            this._spectrumPanel.Location = new System.Drawing.Point(12, 146);
             this._spectrumPanel.Name = "_spectrumPanel";
-            this._spectrumPanel.Size = new System.Drawing.Size(713, 233);
-            this._spectrumPanel.TabIndex = 26;
             // 
             // _spectrumLabel
             // 
-            this._spectrumLabel.AutoSize = true;
-            this._spectrumLabel.Location = new System.Drawing.Point(9, 130);
+            resources.ApplyResources(this._spectrumLabel, "_spectrumLabel");
             this._spectrumLabel.Name = "_spectrumLabel";
-            this._spectrumLabel.Size = new System.Drawing.Size(82, 13);
-            this._spectrumLabel.TabIndex = 27;
-            this._spectrumLabel.Text = "_spectrumLabel";
             // 
             // _eventPanel
             // 
-            this._eventPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this._eventPanel, "_eventPanel");
             this._eventPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._eventPanel.Controls.Add(this._toleranceUpDown);
             this._eventPanel.Controls.Add(this._toleranceLabel);
@@ -268,89 +200,11 @@
             this._eventPanel.Controls.Add(this._nameLabel);
             this._eventPanel.Controls.Add(this._eventBox);
             this._eventPanel.Controls.Add(this._keyLabel);
-            this._eventPanel.Location = new System.Drawing.Point(12, 419);
             this._eventPanel.Name = "_eventPanel";
-            this._eventPanel.Size = new System.Drawing.Size(714, 120);
-            this._eventPanel.TabIndex = 28;
-            // 
-            // _nameBox
-            // 
-            this._nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._nameBox.Location = new System.Drawing.Point(97, 12);
-            this._nameBox.Name = "_nameBox";
-            this._nameBox.Size = new System.Drawing.Size(599, 20);
-            this._nameBox.TabIndex = 3;
-            this._nameBox.Text = "_nameBox";
-            this._nameBox.TextChanged += new System.EventHandler(this._nameBox_TextChanged);
-            // 
-            // _nameLabel
-            // 
-            this._nameLabel.AutoSize = true;
-            this._nameLabel.Location = new System.Drawing.Point(10, 15);
-            this._nameLabel.Name = "_nameLabel";
-            this._nameLabel.Size = new System.Drawing.Size(65, 13);
-            this._nameLabel.TabIndex = 2;
-            this._nameLabel.Text = "_nameLabel";
-            // 
-            // _eventBox
-            // 
-            this._eventBox.Location = new System.Drawing.Point(97, 38);
-            this._eventBox.Name = "_eventBox";
-            this._eventBox.Size = new System.Drawing.Size(571, 20);
-            this._eventBox.TabIndex = 1;
-            this._eventBox.Text = "_eventBox";
-            this._eventBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this._eventBox_KeyDown);
-            // 
-            // _keyLabel
-            // 
-            this._keyLabel.AutoSize = true;
-            this._keyLabel.Location = new System.Drawing.Point(10, 41);
-            this._keyLabel.Name = "_keyLabel";
-            this._keyLabel.Size = new System.Drawing.Size(56, 13);
-            this._keyLabel.TabIndex = 0;
-            this._keyLabel.Text = "_keyLabel";
-            // 
-            // _eventLabel
-            // 
-            this._eventLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._eventLabel.AutoSize = true;
-            this._eventLabel.Location = new System.Drawing.Point(12, 403);
-            this._eventLabel.Name = "_eventLabel";
-            this._eventLabel.Size = new System.Drawing.Size(66, 13);
-            this._eventLabel.TabIndex = 29;
-            this._eventLabel.Text = "_eventLabel";
-            // 
-            // _musicalNoteLabel
-            // 
-            this._musicalNoteLabel.AutoSize = true;
-            this._musicalNoteLabel.Location = new System.Drawing.Point(10, 67);
-            this._musicalNoteLabel.Name = "_musicalNoteLabel";
-            this._musicalNoteLabel.Size = new System.Drawing.Size(97, 13);
-            this._musicalNoteLabel.TabIndex = 4;
-            this._musicalNoteLabel.Text = "_musicalNoteLabel";
-            // 
-            // _musicalNoteBox
-            // 
-            this._musicalNoteBox.Enabled = false;
-            this._musicalNoteBox.Location = new System.Drawing.Point(97, 64);
-            this._musicalNoteBox.Name = "_musicalNoteBox";
-            this._musicalNoteBox.Size = new System.Drawing.Size(117, 20);
-            this._musicalNoteBox.TabIndex = 30;
-            this._musicalNoteBox.Text = "_musicalNoteBox";
-            // 
-            // _toleranceLabel
-            // 
-            this._toleranceLabel.AutoSize = true;
-            this._toleranceLabel.Location = new System.Drawing.Point(237, 67);
-            this._toleranceLabel.Name = "_toleranceLabel";
-            this._toleranceLabel.Size = new System.Drawing.Size(83, 13);
-            this._toleranceLabel.TabIndex = 31;
-            this._toleranceLabel.Text = "_toleranceLabel";
             // 
             // _toleranceUpDown
             // 
-            this._toleranceUpDown.Location = new System.Drawing.Point(370, 65);
+            resources.ApplyResources(this._toleranceUpDown, "_toleranceUpDown");
             this._toleranceUpDown.Maximum = new decimal(new int[] {
             4,
             0,
@@ -362,26 +216,61 @@
             0,
             -2147483648});
             this._toleranceUpDown.Name = "_toleranceUpDown";
-            this._toleranceUpDown.Size = new System.Drawing.Size(53, 20);
-            this._toleranceUpDown.TabIndex = 30;
             this._toleranceUpDown.ValueChanged += new System.EventHandler(this._toleranceUpDown_ValueChanged);
+            // 
+            // _toleranceLabel
+            // 
+            resources.ApplyResources(this._toleranceLabel, "_toleranceLabel");
+            this._toleranceLabel.Name = "_toleranceLabel";
+            // 
+            // _musicalNoteBox
+            // 
+            resources.ApplyResources(this._musicalNoteBox, "_musicalNoteBox");
+            this._musicalNoteBox.Name = "_musicalNoteBox";
+            // 
+            // _musicalNoteLabel
+            // 
+            resources.ApplyResources(this._musicalNoteLabel, "_musicalNoteLabel");
+            this._musicalNoteLabel.Name = "_musicalNoteLabel";
+            // 
+            // _nameBox
+            // 
+            resources.ApplyResources(this._nameBox, "_nameBox");
+            this._nameBox.Name = "_nameBox";
+            this._nameBox.TextChanged += new System.EventHandler(this._nameBox_TextChanged);
+            // 
+            // _nameLabel
+            // 
+            resources.ApplyResources(this._nameLabel, "_nameLabel");
+            this._nameLabel.Name = "_nameLabel";
+            // 
+            // _eventBox
+            // 
+            resources.ApplyResources(this._eventBox, "_eventBox");
+            this._eventBox.Name = "_eventBox";
+            this._eventBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this._eventBox_KeyDown);
+            // 
+            // _keyLabel
+            // 
+            resources.ApplyResources(this._keyLabel, "_keyLabel");
+            this._keyLabel.Name = "_keyLabel";
+            // 
+            // _eventLabel
+            // 
+            resources.ApplyResources(this._eventLabel, "_eventLabel");
+            this._eventLabel.Name = "_eventLabel";
             // 
             // _testEventButton
             // 
-            this._testEventButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._testEventButton.Location = new System.Drawing.Point(12, 567);
+            resources.ApplyResources(this._testEventButton, "_testEventButton");
             this._testEventButton.Name = "_testEventButton";
-            this._testEventButton.Size = new System.Drawing.Size(75, 23);
-            this._testEventButton.TabIndex = 30;
-            this._testEventButton.Text = "_testEventButton";
             this._testEventButton.UseVisualStyleBackColor = true;
             this._testEventButton.Click += new System.EventHandler(this._testEventButton_Click);
             // 
             // EventsEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 602);
             this.Controls.Add(this._testEventButton);
             this.Controls.Add(this._eventLabel);
             this.Controls.Add(this._eventPanel);
@@ -392,7 +281,6 @@
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
             this.Name = "EventsEditForm";
-            this.Text = "EventsEditForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EventsEditForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this._spectrumChart)).EndInit();
             this._infoPanel.ResumeLayout(false);

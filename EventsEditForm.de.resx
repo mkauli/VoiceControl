@@ -117,4 +117,104 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>Abbruch</value>
+  </data>
+  <data name="_detectedFrequencyBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_detectedFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="_detectedFrequencyLabel.Text" xml:space="preserve">
+    <value>ermittelte Frequenz:</value>
+  </data>
+  <data name="_detectedNoteBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectedNoteLabel.Text" xml:space="preserve">
+    <value>ermittelte Musiknote:</value>
+  </data>
+  <data name="_differenceBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_differenceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="_differenceLabel.Text" xml:space="preserve">
+    <value>Abweichung:</value>
+  </data>
+  <data name="_infoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="_infoLabel.Text" xml:space="preserve">
+    <value>Information:</value>
+  </data>
+  <data name="_detectLevelBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_detectLevelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
+  </data>
+  <data name="_detectLevelLabel.Text" xml:space="preserve">
+    <value>Auslöseschwelle:</value>
+  </data>
+  <data name="_spectrumLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="_spectrumLabel.Text" xml:space="preserve">
+    <value>Spektrum:</value>
+  </data>
+  <data name="_toleranceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 67</value>
+  </data>
+  <data name="_toleranceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="_toleranceLabel.Text" xml:space="preserve">
+    <value>Toleranz [+/- Halbton]:</value>
+  </data>
+  <data name="_musicalNoteBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_musicalNoteLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 13</value>
+  </data>
+  <data name="_musicalNoteLabel.Text" xml:space="preserve">
+    <value>Musiknote:</value>
+  </data>
+  <data name="_nameBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="_nameLabel.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="_eventBox.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="_keyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="_keyLabel.Text" xml:space="preserve">
+    <value>Tastaturereignis:</value>
+  </data>
+  <data name="_eventLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="_eventLabel.Text" xml:space="preserve">
+    <value>Ereignis:</value>
+  </data>
+  <data name="_testEventButton.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Ereignis</value>
+  </data>
 </root>

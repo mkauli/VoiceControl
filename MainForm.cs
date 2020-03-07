@@ -64,24 +64,28 @@ namespace SendVoiceCommands
         /// </summary>
         private ProcessItem _processItem = null;
 
+        private string _language = SendVoiceCommands.Properties.Settings.Default.Language;
+
         public MainForm()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_language);
             InitializeComponent();
 
-            Text = "Send Voice Command";
-            _closeButton.Text = "Close";
-            _refreshButton.Text = "Refresh";
-            _spectrumButton.Text = "Spectrum";
-            _levelLabel.Text = "Sound Level:";
-            _processLabel.Text = "Select Windows Application:";
-            _loadProfileButton.Text = "...";
-            _loadProfileBox.Text = "";
-            _loadProfileLabel.Text = "Stored profile:";
-            _createNewProfileButton.Text = "Create New";
-            _eventsLabel.Text = "Events:";
-            _eventsCreateButton.Text = "Create New";
-            _eventsDeleteButton.Text = "Remove";
-            _eventsEditButton.Text = "Edit";
+            switch(_language)
+            {
+                case "de-DE":
+                    _languageBox.SelectedIndex = 0;
+                    break;
+                case "en-US":
+                    _languageBox.SelectedIndex = 1;
+                    break;
+                default:
+                    _languageBox.SelectedIndex = 0;
+                    _language = "de-DE";
+                    SendVoiceCommands.Properties.Settings.Default.Language = _language;
+                    SendVoiceCommands.Properties.Settings.Default.Save();
+                    break;
+            }
 
             refreshProcessList();
 
@@ -384,7 +388,7 @@ namespace SendVoiceCommands
 
         private void _eventsCreateButton_Click(object sender, EventArgs e)
         {
-            EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger, _processItem);
+            EventsEditForm dialog = new EventsEditForm(null, _sampleAggregator, _spectrumUtils, _detectLevel, null, _eventTrigger, _processItem);
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 HandleEventDialogData(dialog, null);
@@ -396,7 +400,7 @@ namespace SendVoiceCommands
             if (_eventsListBox.SelectedItem != null)
             {
                 MusicalNoteEvent musicalNoteEvent = _eventsListBox.SelectedItem as MusicalNoteEvent;
-                EventsEditForm dialog = new EventsEditForm("Create new Event", _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger, _processItem);
+                EventsEditForm dialog = new EventsEditForm(musicalNoteEvent.Name, _sampleAggregator, _spectrumUtils, _detectLevel, musicalNoteEvent, _eventTrigger, _processItem);
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     HandleEventDialogData(dialog, musicalNoteEvent);
@@ -465,6 +469,47 @@ namespace SendVoiceCommands
                 _applicationProperties.EventList = tmp.ToArray();
                 RefreshEventsList();
                 SaveProfile();
+            }
+        }
+
+        private void _languageBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (_languageBox.SelectedIndex)
+            {
+                case 0:
+                    _language = "de-DE";
+                    break;
+                case 1:
+                    _language = "en-US";
+                    break;
+                default:
+                    _language = "de-DE";
+                    break;
+            }
+
+            // store new language
+            SendVoiceCommands.Properties.Settings.Default.Language = _language;
+            SendVoiceCommands.Properties.Settings.Default.Save();
+
+            // change language at runtime
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_language);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            // store persistent properties
+            string profileFileName = _loadProfileBox.Text;
+            System.Drawing.Size formSize = Size;
+            // reset resources
+            resources.ApplyResources(this, "$this");
+            applyResources(resources, this.Controls);
+            // restore persistent properties
+            _loadProfileBox.Text = profileFileName;
+            Size = formSize;
+        }
+        private void applyResources(System.ComponentModel.ComponentResourceManager resources, Control.ControlCollection ctls)
+        {
+            foreach (Control ctl in ctls)
+            {
+                resources.ApplyResources(ctl, ctl.Name);
+                applyResources(resources, ctl.Controls);
             }
         }
     }

@@ -109,28 +109,10 @@ namespace SendVoiceCommands
             _detectLevelSeries = _spectrumChart.Series["detectLevelSeries"];
             _detectLevelSeries.LegendText = "Detect Level";
 
-            Text = title;
-            _okButton.Text = "OK";
-            _cancelButton.Text = "Cancel";
-            _infoLabel.Text = "Information:";
-            _spectrumLabel.Text = "Frequence Spectrum";
-            _detectedFrequencyLabel.Text = "detected Frequence:";
-            _detectedFrequencyBox.Text = "0 HZ";
-            _detectedNoteLabel.Text = "detected Note:";
-            _detectedNoteBox.Text = "-";
-            _differenceBox.Text = "";
-            _differenceLabel.Text = "Deviation:";
-            _detectLevelLabel.Text = "Detect-Level:";
-            _detectLevelBox.Text = "0";
-            _eventLabel.Text = "Event:";
-            _nameLabel.Text = "Name:";
-            _nameBox.Text = "";
-            _keyLabel.Text = "Key:";
-            _eventBox.Text = "";
-            _musicalNoteLabel.Text = "Musical-Note:";
-            _musicalNoteBox.Text = "";
-            _toleranceLabel.Text = "Tolerance [+/- Half-Tone]:";
-            _testEventButton.Text = "Test";
+            if (title != null)
+            {
+                Text += " [" + title + "]";
+            }
 
             _detectLevel = detectLevel;
             _detectLevelBar.Minimum = 0;
