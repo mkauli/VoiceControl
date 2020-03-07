@@ -55,6 +55,9 @@ namespace SendVoiceCommands
                     case 27:
                         s += "[Esc]";
                         break;
+                    case 32:
+                        s += "[Space]";
+                        break;
                     case 37:
                         s += "[Left]";
                         break;
