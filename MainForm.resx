@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>777, 441</value>
+    <value>794, 504</value>
   </data>
   <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -151,7 +151,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="_spectrumButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>696, 441</value>
+    <value>713, 504</value>
   </data>
   <data name="_spectrumButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -193,7 +193,7 @@
     <value>True</value>
   </data>
   <data name="_languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>662, 9</value>
+    <value>679, 9</value>
   </data>
   <data name="_languageLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
@@ -226,7 +226,7 @@
     <value>English</value>
   </data>
   <data name="_languageBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 6</value>
+    <value>748, 6</value>
   </data>
   <data name="_languageBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -251,111 +251,6 @@
   </data>
   <data name="_runPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventBox.Name" xml:space="preserve">
-    <value>_detectedEventBox</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventBox.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventLabel.Name" xml:space="preserve">
-    <value>_detectedEventLabel</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventLabel.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_detectedEventLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteBox.Name" xml:space="preserve">
-    <value>_detectedNoteBox</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteBox.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_stopButton.Name" xml:space="preserve">
-    <value>_stopButton</value>
-  </data>
-  <data name="&gt;&gt;_stopButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_stopButton.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_stopButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteLabel.Name" xml:space="preserve">
-    <value>_detectedNoteLabel</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteLabel.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_detectedNoteLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_startButton.Name" xml:space="preserve">
-    <value>_startButton</value>
-  </data>
-  <data name="&gt;&gt;_startButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_startButton.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_startButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;_buttonPanel.Name" xml:space="preserve">
-    <value>_buttonPanel</value>
-  </data>
-  <data name="&gt;&gt;_buttonPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buttonPanel.Parent" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_buttonPanel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_runPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 406</value>
-  </data>
-  <data name="_runPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>678, 58</value>
-  </data>
-  <data name="_runPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;_runPanel.Name" xml:space="preserve">
-    <value>_runPanel</value>
-  </data>
-  <data name="&gt;&gt;_runPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_runPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_runPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="_detectedEventBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>448, 19</value>
@@ -531,6 +426,27 @@
   <data name="&gt;&gt;_buttonPanel.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="_runPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 469</value>
+  </data>
+  <data name="_runPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>695, 58</value>
+  </data>
+  <data name="_runPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Name" xml:space="preserve">
+    <value>_runPanel</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_runPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="_runLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -538,7 +454,7 @@
     <value>True</value>
   </data>
   <data name="_runLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 390</value>
+    <value>11, 453</value>
   </data>
   <data name="_runLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 13</value>
@@ -561,6 +477,9 @@
   <data name="&gt;&gt;_runLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="_settingPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="_eventsEditButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -568,7 +487,7 @@
     <value>NoControl</value>
   </data>
   <data name="_eventsEditButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>778, 234</value>
+    <value>795, 234</value>
   </data>
   <data name="_eventsEditButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -598,7 +517,7 @@
     <value>NoControl</value>
   </data>
   <data name="_eventsDeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>778, 304</value>
+    <value>795, 365</value>
   </data>
   <data name="_eventsDeleteButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -628,7 +547,7 @@
     <value>NoControl</value>
   </data>
   <data name="_eventsCreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>778, 205</value>
+    <value>795, 205</value>
   </data>
   <data name="_eventsCreateButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -688,7 +607,7 @@
     <value>11, 205</value>
   </data>
   <data name="_eventsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>761, 121</value>
+    <value>778, 173</value>
   </data>
   <data name="_eventsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -712,7 +631,7 @@
     <value>NoControl</value>
   </data>
   <data name="_createNewProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>778, 30</value>
+    <value>795, 30</value>
   </data>
   <data name="_createNewProfileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -742,7 +661,7 @@
     <value>NoControl</value>
   </data>
   <data name="_loadProfileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>743, 31</value>
+    <value>760, 31</value>
   </data>
   <data name="_loadProfileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 23</value>
@@ -802,7 +721,7 @@
     <value>11, 33</value>
   </data>
   <data name="_loadProfileBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>726, 20</value>
+    <value>743, 20</value>
   </data>
   <data name="_loadProfileBox.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -892,7 +811,7 @@
     <value>11, 86</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>842, 23</value>
+    <value>859, 23</value>
   </data>
   <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -916,7 +835,7 @@
     <value>NoControl</value>
   </data>
   <data name="_refreshButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>778, 151</value>
+    <value>795, 151</value>
   </data>
   <data name="_refreshButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -946,7 +865,7 @@
     <value>11, 153</value>
   </data>
   <data name="_processesBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>761, 21</value>
+    <value>778, 21</value>
   </data>
   <data name="_processesBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -967,7 +886,7 @@
     <value>0, 33</value>
   </data>
   <data name="_settingPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>865, 345</value>
+    <value>882, 408</value>
   </data>
   <data name="_settingPanel.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -991,10 +910,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>864, 476</value>
+    <value>881, 539</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>497, 475</value>
+    <value>753, 476</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>MainForm</value>

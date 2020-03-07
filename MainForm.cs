@@ -286,15 +286,6 @@ namespace SendVoiceCommands
 
         private void SendEventToApplication()
         {
-            //ProcessItem item = _processesBox.SelectedItem as ProcessItem;
-            //if (item == null)
-            //{
-            //    return;
-            //}
-
-            //SetForegroundWindow(item.process.MainWindowHandle);
-            //SendKeys.SendWait(" ");
-            //SendKeys.Flush();
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -654,6 +645,65 @@ namespace SendVoiceCommands
         private void TriggerEvent(MusicalNoteEvent musicalNote)
         {
             _detectedEventBox.Text = musicalNote.Name;
+
+            // send event to application
+            ProcessItem item = _processesBox.SelectedItem as ProcessItem;
+            if (item != null)
+            {
+                SetForegroundWindow(item.process.MainWindowHandle);
+
+                // See: https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.sendkeys?redirectedfrom=MSDN&view=netframework-4.8
+
+                string sendData = "";
+                if(musicalNote.KeyAlt)
+                {
+                    sendData += "%";
+                }
+                if (musicalNote.KeyControl)
+                {
+                    sendData += "^";
+                }
+                if (musicalNote.KeyShift)
+                {
+                    sendData += "+";
+                }
+                switch (musicalNote.KeyValue)
+                {
+                    case 0:
+                        break;
+                    case 8:
+                        sendData += "{BS}";
+                        break;
+                    case 13:
+                        sendData += "~";
+                        break;
+                    case 27:
+                        sendData += "{ESC}";
+                        break;
+                    case 32:
+                        sendData += " ";
+                        break;
+                    case 37:
+                        sendData += "{LEFT}";
+                        break;
+                    case 38:
+                        sendData += "{UP}";
+                        break;
+                    case 39:
+                        sendData += "{RIGHT}";
+                        break;
+                    case 40:
+                        sendData += "{DOWN}";
+                        break;
+                    default:
+                        sendData += (char)musicalNote.KeyValue;
+                        break;
+
+                }
+
+                SendKeys.SendWait(sendData);
+                SendKeys.Flush();
+            }
         }
     }
 }

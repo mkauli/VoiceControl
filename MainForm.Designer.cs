@@ -164,6 +164,7 @@
             // 
             // _settingPanel
             // 
+            resources.ApplyResources(this._settingPanel, "_settingPanel");
             this._settingPanel.Controls.Add(this._eventsEditButton);
             this._settingPanel.Controls.Add(this._eventsDeleteButton);
             this._settingPanel.Controls.Add(this._eventsCreateButton);
@@ -178,7 +179,6 @@
             this._settingPanel.Controls.Add(this.progressBar1);
             this._settingPanel.Controls.Add(this._refreshButton);
             this._settingPanel.Controls.Add(this._processesBox);
-            resources.ApplyResources(this._settingPanel, "_settingPanel");
             this._settingPanel.Name = "_settingPanel";
             // 
             // _eventsEditButton
